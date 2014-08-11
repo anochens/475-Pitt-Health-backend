@@ -1,0 +1,7 @@
+# Begin password protection #
+AuthName "MyHealthSites Beta"
+Require valid-user
+AuthUserFile "/home/users/web/b2071/myd.myhealthsitescom/public_html/beta/.htpasswd"
+AuthType basic
+# End password protection #
+

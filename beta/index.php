@@ -14,7 +14,6 @@
 
 	print_navbar();
 
-	// print out index's wrapper
 	print_main_wrapper();
 
 	echo "<div id=\"content_wrapper\">";
@@ -24,7 +23,6 @@
 	// start the main body of the page
 	print_searchbar();
 
-	// Print the doctor on the main page
 	print_doctor();
 
 	// close the main wrapper div

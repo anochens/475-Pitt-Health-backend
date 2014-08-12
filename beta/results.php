@@ -49,7 +49,7 @@
 			}
 		}
 		
-      if(array_key_exists('searchInformation', $results)) {
+		if(array_key_exists('searchInformation', $results)) {
 
 			$searchTime = $results['searchInformation']['formattedSearchTime'];
 

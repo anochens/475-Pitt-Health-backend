@@ -7,16 +7,72 @@ include('functions.php');
 
 $db = db_connect();
 
+if(count($_REQUEST) > 0) {
+	handleChanges($_REQUEST);
+}   
 //this would insert sites into the database from a file
 //insert_searchable_sites_from_file('sitestosearch.txt');
 
 $cats = runQuery('SELECT * FROM search_categories');
 $sites = runQuery('SELECT * FROM searchable_sites');
 
-	var_dump($_REQUEST);
+	
 
-if(array_key_exists('changes',$_POST)) {
-	var_dump($_POST);
+
+function handleChanges($changes) {
+   $pattern = '/^edit_cat(\d+)_site(\d+)$/';
+
+	foreach($changes as $change => $v) {
+   	if(!preg_match($pattern, $change, $captures)) {
+			echo "skipped $change<br>";
+			continue; //skip bad lines
+		}
+
+		//echo "Change OK: $change=$v<br>";
+      $cat_no = $captures[1];
+		$site_no = $captures[2];
+
+		makeDBchange($site_no, $cat_no, $v);
+	}
+}
+
+function makeDBchange($site_no, $cat_no, $v) {
+	$db = db_connect();
+
+	//find current categories
+	$sql = 'SELECT categories from searchable_sites WHERE id='.$site_no;
+	$res = runQuery($sql);
+
+	$categories = explode(',', $res[0]['categories']);
+
+	//removes category
+	if($v == 0) {
+		$index = array_search($cat_no, $categories);
+   	if($index !== FALSE) { //we have found it
+			unset($categories[$index]);
+		}
+	}
+	else if($v == 1) { //adds category
+		if(!in_array($cat_no, $categories)) {
+			$categories[] = $cat_no;
+		}
+	}
+	else {
+		die('Error');
+	}
+
+	$categories = implode(',', $categories);
+
+
+	//make update to the categories
+	$sql = 'UPDATE searchable_sites SET categories=:categories WHERE id=:id';
+
+   $prep = $db->prepare($sql);
+	$prep->bindParam(':categories', $categories);
+	$prep->bindParam(':id', $site_no);
+
+	$prep->execute(); 
+
 }
 
 

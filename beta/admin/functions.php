@@ -5,8 +5,6 @@
 
 include_once('config.php');
 
-$PAGES = array('consent.php','index.php','shopping.php', 'purchase.php', 'endSurvey.php', 'thankYouPage.php');
-
 function db_connect() {
 	global $db;
 	if($db) return $db; //if a db connection exists, don't get another one

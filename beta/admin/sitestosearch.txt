@@ -1,4 +1,4 @@
-url,
+url,name
 www.HealthyWomen.org/*
 www.nlm.nih.gov/medlineplus/*
 www.Resolve.org/*

@@ -7,8 +7,45 @@ include('functions.php');
 
 $db = db_connect();
 
-insert_searchable_sites_from_file('sitestosearch.txt');
+//insert_searchable_sites_from_file('sitestosearch.txt');
+
+$cats = runQuery('SELECT * FROM search_categories');
+
+$sites = runQuery('SELECT * FROM searchable_sites');
+
+?>
+
+<table border=2>
+
+<tr>
+<?php
+
+$catcount = count($cats);
+
+echo "<th>Site</th>";
+foreach($cats as $cat) {
+	echo "<th>".$cat['name'].'</th>';
+}
+
+echo '</tr>';
+
+foreach($sites as $site) {
+	echo '<tr>';
+	echo '<th style="text-align:right">';
+	if($site['name']) {
+   	echo urldecode($site['name']);
+	}
+	else {
+   	echo urldecode($site['url']);
+	}
+   echo "</th>";
 
 
-$res = runQuery('SELECT * FROM searchable_sites');
-var_dump($res);
+	for($i=0;$i<$catcount;$i++) {
+   	echo "<td></td>";
+	}
+	echo "</tr>";
+}
+
+echo "</table>";
+

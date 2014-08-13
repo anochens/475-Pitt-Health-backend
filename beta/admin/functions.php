@@ -37,7 +37,7 @@ function runQuery($q, $db = null, $return = true) {
       }
    }
    catch(PDOException $e) {
-      print "$q<br>\n";
+      print "Error with query: $q<br>\n";
       print $e->getMessage();
       die;
    }
@@ -53,24 +53,43 @@ function insert_searchable_sites_from_file($filename) {
    $header = $lines[0];
 
 	$cols = explode(',',$header);
-	$data = array(); 
 
+	//handle null cols
+	for($i=0;$i<count($cols);$i++) {
+		trim($cols[$i]);
+		if($cols[$i] == '') {
+			$cols[$i] = "field_$i";
+		}
+	}
+
+	$data = array();
+
+//work w each line
 	for($data_i=1;$data_i<count($lines);$data_i++) {
 		$line = $lines[$data_i];
 
 		$rowdata = array();
       $fields = explode(',',$line);
 
-		for($i=0;$i<count($cols);$i++) {
-			if($i >= count($fields)) break;
-
-			$rowdata[$cols[$i]] = $fields[$i];
+		
+		//put quotes around sites
+		$rowstr = '"'.implode('","',array_map('urlencode', $fields)).'"';
+		
+		//add fields if they are not all specified at the end
+		$n_fields_to_add = count($cols)-count($fields);
+		if($n_fields_to_add > 0) {
+      	$rowstr .= str_repeat(',""', $n_fields_to_add);
 		}
 
-		$data[$data_i] = $rowdata;
+		$data[$data_i] = "($rowstr)";
 	}
 
-	var_dump($data);
+	$colstr = implode(',', $cols);
+	$valstr = implode(',', $data);
+
+	$q="INSERT INTO searchable_sites ($colstr) VALUES".$valstr;
+
+	runQuery($q, null, false);
 }
 
 

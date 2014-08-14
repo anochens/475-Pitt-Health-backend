@@ -39,6 +39,7 @@ function read_csv_data() {
 
 		if($is_first) {
 			$is_first = false;
+			continue;
 		}
 
 		$lines[] = $line;

@@ -42,12 +42,18 @@ function runQuery($q, $db = null, $return = true) {
 }
 
 
-function insert_searchable_sites_from_file($filename) {
-	$contents = file_get_contents($filename);
+function insert_searchable_sites_from_file($filename, $lines_from_file = null) {
+	if($filename) {
+		$contents = file_get_contents($filename);
+
+		$data_i = 0;
+		$lines = explode("\n", $contents); 
+	}
+	else {
+   	$lines = $lines_from_file;
+	}
 
 
-	$data_i = 0;
-	$lines = explode("\n", $contents);
    $header = $lines[0];
 
 	$cols = explode(',',$header);

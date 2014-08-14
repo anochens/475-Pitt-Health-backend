@@ -3,7 +3,7 @@
 //this file will output all info associated with cateorgizing results
 //and will do processing of changes
 
-include('functions.php');
+include_once('functions.php');
 
 $db = db_connect();
 
@@ -24,7 +24,6 @@ function handleChanges($changes) {
 
 	foreach($changes as $change => $v) {
    	if(!preg_match($pattern, $change, $captures)) {
-			echo "skipped $change<br>";
 			continue; //skip bad lines
 		}
 
@@ -99,7 +98,7 @@ td { min-width:75px; }
 $(function() {
 	
 	$("button").click(btnHandler);
-	$('form').submit(function(event) {
+	$('form#changes').submit(function(event) {
 		$(window).unbind("beforeunload");
 	});
 	
@@ -139,7 +138,7 @@ function btnHandler() {
 		$('#edit_'+parentId).remove();
 	}
 
-	$('form').append(hiddenElem);
+	$('form#changes').append(hiddenElem);
 
 	checkUnload();
 	$("button").click(btnHandler);
@@ -201,7 +200,7 @@ foreach($sites as $site) {
    $site_cats = explode(',',$site['categories']);
 
 	echo '<tr>';
-	echo '<th style="text-align:right">';
+	echo '<th style="text-align:right;max-width:600px;min-width:400px;word-break: break-all;">';
 	if($site['name']) {
    	echo urldecode($site['name']);
 	}

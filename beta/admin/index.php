@@ -16,7 +16,21 @@
 
 	print_main_wrapper();
 
-	echo "<div id=\"content_wrapper\">";
+	?>
+	<div id='content_wrapper'>
+
+	<fieldset style='width:400px;'>
+	<legend>Batch insert/delete</legend>
+
+	<?php
+
+	include('update_searchable_sites.php');
+   ?>
+
+	</fieldset>
+
+	<?php
+
 
 	include('results_editor.php');
 

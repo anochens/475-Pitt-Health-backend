@@ -89,22 +89,6 @@
 
 ?>
 
-<style> 
-.generic_bar a,.generic_bar span { color: rgb(200,0,0); text-decoration:none;font-size:175% }
-.generic_bar ul li {display:inline}
-.generic_bar ul { padding:0; margin:0 whitepsace:nowrap; list-style-type:none}
-.generic_bar ul li a
-{
-	float:left;
-	padding-right:15px;
-}
-#menu li a:hover
-{
-	color: rgb(171,5,26); 
-}
-.generic_bar {margin-bottom:10px;}
-
-</style>
 		<div class='generic_bar'>
 			<a href='#'>Simple</a> <span>|</span>
 			<a href='#'>Wizard</a>

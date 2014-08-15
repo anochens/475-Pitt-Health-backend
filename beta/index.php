@@ -22,11 +22,11 @@
 
 	// start the main body of the page
 	print_searchbar();
+	print_doctor();
 
 
 	include('filtering_interface.php');
 
-	print_doctor();
 
 	// close the main wrapper div
 	echo "</div>";

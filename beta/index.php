@@ -16,12 +16,15 @@
 
 	print_main_wrapper();
 
-	echo "<div id=\"content_wrapper\">";
+	echo "<div id='content_wrapper'>";
 
 	print_our_goal();
 
 	// start the main body of the page
 	print_searchbar();
+
+
+	include('filtering_interface.php');
 
 	print_doctor();
 

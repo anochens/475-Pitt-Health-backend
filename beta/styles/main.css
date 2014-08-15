@@ -1,13 +1,14 @@
 /* CSS related to the body of the page */
 body { margin: 0px; font-family: 'Maven Pro', sans-serif; }
+/* div {border:solid 5px; }  */ /*for debugging */
 
 /* CSS realated to the main content wrapper of the page */
 #main_wrapper { background-color: rgb(228,219,181); padding-top: 10px; overflow: hidden; height: 492px; }
 #main_wrapper_results { background-color: rgb(228,219,181); padding-top: 10px; overflow: hidden; height: 1400px; }
-#content_wrapper { position: relative; }
+#content_wrapper { position: absolute; left:190px;}
 
 /* CSS related to our goal */
-#our_goal { color: rgb(82,36,16); font-size: 19px; width: 600px; position: relative; left: 190px; margin-bottom: 20px; font-weight: bold; }
+#our_goal { color: rgb(82,36,16); font-size: 19px; width: 600px; margin-bottom: 20px; font-weight: bold; }
 
 /* CSS related to the header */
 #headerimgdiv { position: absolute; left: 190px; }
@@ -65,16 +66,20 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 #page:active { color: black; margin: 2px; }
 
 /* CSS related to search bar form */
-#search_bar_wrapper { margin-bottom: 10px; position: absolute; left: 190px; }
+#search_bar_wrapper { margin-bottom: 10px; }
 #search_text_box { padding: 10px; border: 15px solid rgb(218,204,149); border-radius: 10px; width: 500px; }
 #search_text_box:focus { outline: none; }
-#search_button { padding: 5px 23px; border: 0 none; cursor: pointer; background: rgb(171,5,26); color: white; border-radius: 10px; font-size: 20px; position: absolute; top: 15px; left: 560px; z-index: 2; }
+#search_button { padding: 5px 23px; border: 0 none; cursor: pointer; background: rgb(171,5,26); color: white; border-radius: 10px; font-size: 20px; /*position: absolute; top: 15px; left: 560px; z-index: 2; */ }
 #search_button:hover { background-color: #ff322f; }
-#searchbar { position: absolute; }
 
 /* CSS related to the main search basic page */
-#doctor_picture_div {position: relative; top: 0px; left: 400px; position: absolute; top: -1px; left: 755px; }
+#doctor_picture_div {position: absolute;top: -1px; left:565px; /*left: 755px;*/ }
 #cartoon_doctor_img {}
+
+/* CSS related to filtering interface */
+#filtering_wrapper { margin-bottom: 10px; }
+
+
 
 /* CSS related to the footer*/
 #footer_bar {background-color: rgb(171,5,25); margin-left: 0px; color: white; height: 50px; }

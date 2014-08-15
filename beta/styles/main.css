@@ -1,6 +1,5 @@
 /* CSS related to the body of the page */
 body { margin: 0px; font-family: 'Maven Pro', sans-serif; }
-/* div {border:solid 5px; }  */ /*for debugging */
 
 /* CSS realated to the main content wrapper of the page */
 #main_wrapper { background-color: rgb(228,219,181); padding-top: 10px; overflow: hidden; height: 492px; }
@@ -40,14 +39,14 @@ body { margin: 0px; font-family: 'Maven Pro', sans-serif; }
 #pipe { color: rgb(255,50,47); padding: 5px;}
 
 /* CSS related to the search results information */
-#result_info { text-align: center; color: rgb(81,36,18); font-size: 14px; position: absolute; top: 286px; left: 575px; margin-top: 35px; }
+#result_info { text-align: center; color: rgb(81,36,18); font-size: 14px; width:250px;margin-left:auto;margin-right:auto;margin-top: 15px;margin-bottom:10px }
 
 /* CSS related to the general search section */
-#general_search_section { background-color: white; border-radius: 10px; border: 1px solid white; width: 985px; padding: 10px; position: absolute; top: 525px; left: 190px; }
+#general_search_section { background-color: white; border-radius: 10px; border: 1px solid white; width: 985px; padding: 10px; /*position: absolute; top: 525px; left: 190px;*/ }
 #general_header { text-align: center; color: rgb(50,104,222); font-size: 30px; margin-bottom: 5px; }
 
 /* CSS related to the recommended search section */
-#recommended_section { background-color: white; border-radius: 10px; border: 1px solid white; width: 985px; padding: 10px; position: absolute; top: 350px; left: 190px; }
+#recommended_section { background-color: white; border-radius: 10px; border: 1px solid white; width: 985px; padding: 10px; margin-bottom:20px }
 #recommended_header { background-color: rgb(0,99,233); text-align: center; font-size: 30px; margin-bottom: 5px; color: white; border-radius: 10px; margin-top: -11px; margin-left: -11px; margin-right: -11px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; }
 #empty_space { width:10px; }
 
@@ -85,3 +84,6 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 #footer_bar {background-color: rgb(171,5,25); margin-left: 0px; color: white; height: 50px; }
 #centered_footer{width: 75%; margin: 0px auto; overflow: hidden; padding-top: 10px; }
 #socialoutlets{display: inline; margin-right: 0px; float: right;}
+
+/* div {border:solid 5px; } / /*for debugging */
+

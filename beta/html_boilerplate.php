@@ -33,11 +33,11 @@
 	}
 
 	function print_navbar() {
-
-		echo "<div id='navbar'>
+      ?>
+		<div id='navbar'>
 				<div id='sub_navbar'><a id='homelink' href='index.php'>home</a> <span id='pipe'>|</span> <a id='aboutlink'>about us</a> <span id='pipe'>|</span> <a id='serviceslink'>services</a> <span id='pipe'>|</span> <a id='howworkslink'>how it works?</a></div>
-		  	  </div>";
-
+		</div>
+      <?php
 	}
 
 	function print_searchbar() {

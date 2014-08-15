@@ -9,7 +9,7 @@
 	// rather than just a 500 bad request error
 	ini_set('display_errors','On');
 
-	var_dump($_REQUEST);
+//	var_dump($_REQUEST);
 
 	include("executesearch.php");
 

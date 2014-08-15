@@ -10,13 +10,26 @@ $res = runQuery($q, $db);
      
 ?>
 
-<style>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+                                     
+<script>
+$(document).ready(function() {
+	$('form').submit(function(event) {
+		formvars = $('form').serialize(); //get data from all forms on the page at once
 
-</style>
+		window.location = 'results.php?submit=submit&'+formvars;
 
+		return false;
+	});
+});
+
+</script>
 
 <div class='filtering_wrapper' class='generic_background_section'>
 	<table>
+	<form id='filter_form1'>
 	<tr><th colspan=2 class='generic_header'>Who are you?</th></tr>
 	 
 	<?php
@@ -30,16 +43,14 @@ $res = runQuery($q, $db);
 	}
 
 	?>
+	</form>
 	</table>
 </div>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
- 
 
 <div class='filtering_wrapper' class='generic_background_section'>
 	<table>
+	<form id='filter_form2'>
 	<tr><th colspan=2 class='generic_header'>Personalize your search</th></tr>
 	 
 	<?php
@@ -57,16 +68,17 @@ $res = runQuery($q, $db);
 	?>
 
 
-<tr>
-<td></td>
+	<tr>
+		<td></td>
 
-<td>
-Videos <input type='checkbox' name='want_videos' />
-Images <input type='checkbox' name='want_images' />
+		<td>
+			Videos <input type='checkbox' name='want_videos' />
+			Images <input type='checkbox' name='want_images' />
+		</td>
 
-</td>
+	</form>
 
-</table>   
+	</table>   
 
 
 </div>

@@ -1,8 +1,15 @@
 <?php
 
+	//TODO: check for if filtering exists and display results filtered if so.
+
+
+
+
 	// Set error display to on, this will give a useful page error
 	// rather than just a 500 bad request error
 	ini_set('display_errors','On');
+
+	var_dump($_REQUEST);
 
 	include("executesearch.php");
 

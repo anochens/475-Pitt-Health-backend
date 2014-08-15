@@ -42,14 +42,16 @@
 
 	function print_searchbar() {
 
-		// Print out the search bar and FIND button as well as doctor image
-		echo "<div id='search_bar_wrapper'>
+		// Print out the search bar and FIND button
+		?>
+		<div id='search_bar_wrapper'>
 			<form id='searchbar' action='results.php' method='get' name='searchbar'>
 
 			<input id='search_text_box' type='text' name='q' placeholder='Diabetes, Asthma, Heart ... More' required>
 			<input id='search_button' type='submit' name='search' value='FIND'>
 
-		  </form></div>";
+		  </form></div>
+		  <?php
 
 	}
 

@@ -47,6 +47,7 @@ $(document).ready(function() {
 	</table>
 </div>
 
+<br>
 
 <div class='filtering_wrapper' class='generic_background_section'>
 	<table>

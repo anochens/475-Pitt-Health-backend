@@ -2,9 +2,11 @@
 body { margin: 0px; font-family: 'Maven Pro', sans-serif; z-index:1 }
 
 /* CSS realated to the main content wrapper of the page */
-#main_wrapper { background-color: rgb(228,219,181); padding-top: 10px; min-height: 492px; max-height:1500px;min-width: 1225px;display:table }
-#main_wrapper_results { background-color: rgb(228,219,181); padding-top: 10px; overflow: hidden; height: 1400px; }
+#main_wrapper { background-color: rgb(228,219,181); padding-top: 10px; min-height: 492px; /*max-height:1500px;*/min-width: 1225px;display:table }
+#main_wrapper_results { background-color: rgb(228,219,181); padding-top: 10px; min-height: 1400px; /*overflow: hidden; height: 1400px;*/ }
+#sub_main_wrapper_results { background-color: rgb(228,219,181); padding-top: 10px; }
 #content_wrapper { margin-left:190px;}
+#sub_content_wrapper { margin-left:0px;}
 
 /* CSS related to our goal */
 #our_goal { color: rgb(82,36,16); font-size: 19px; width: 600px; margin-bottom: 20px; font-weight: bold; }

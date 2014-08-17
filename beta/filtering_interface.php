@@ -17,12 +17,38 @@ $res = runQuery($q, $db);
 <script>
 $(document).ready(function() {
 	$('form').submit(function(event) {
+
+		extras = [];
+
+		//empty checkboxes don't submit by default, so fix this
+		checkboxes = $('input:checkbox');
+		for(i=0;i<checkboxes.length;i++) {
+			checkboxes[i] = $(checkboxes[i]);
+			extras += "&"+[checkboxes[i].attr('name')] +"="+ checkboxes[i].val();
+		}
+		
+
 		formvars = $('form').serialize(); //get data from all forms on the page at once
 
-		window.location = 'results.php?submit=submit&'+formvars;
+		window.location = 'results.php?submit=submit&'+formvars+extras;
 
 		return false;
 	});
+
+
+
+	
+	$('input:checkbox').change(function() {
+		val = $(this).val();
+
+		if(val == '1') {
+			$(this).val('0');
+		}
+		else {
+      	$(this).val('1');
+		}
+	});
+
 });
 
 function toggleAdvanced() {
@@ -30,9 +56,11 @@ function toggleAdvanced() {
 
 	if($('#toggler_link').html() == 'Simple search') {
    	$('#toggler_link').html('Advanced search');
+		$('#advanced_search_indicator').val(0);
 	}
 	else {
    	$('#toggler_link').html('Simple search');
+		$('#advanced_search_indicator').val(1);
 	}
 }
 
@@ -47,6 +75,7 @@ function toggleAdvanced() {
 <div class='filtering_wrapper' class='generic_background_section'>
 	<table>
 	<form id='filter_form1'>
+	<input id='advanced_search_indicator' name='advanced_search_indicator' value='1' type='hidden'>
 	<tr><th colspan=2 class='generic_header'>Who are you?</th></tr>
 	 
 	<?php
@@ -55,7 +84,7 @@ function toggleAdvanced() {
 		if($cat['is_iama'] == '0') continue;
 
 		echo "<tr><td class='left'>".$cat['name']."</td>";;
-		echo "<td><input type='checkbox' name='IAmA_".$cat['id']."i' /></td></tr>";
+		echo "<td><input checked type='checkbox' value='1' name='IAmA_".$cat['id']."i' /></td></tr>";
 		
 	}
 
@@ -90,8 +119,8 @@ function toggleAdvanced() {
 		<td></td>
 
 		<td>
-			Videos <input type='checkbox' name='want_videos' />
-			Images <input type='checkbox' name='want_images' />
+			Videos <input value='1' type='checkbox' name='want_videos' />
+			Images <input value='1' type='checkbox' name='want_images' />
 		</td>
 
 	</form>

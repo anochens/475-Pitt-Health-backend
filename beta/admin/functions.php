@@ -98,6 +98,22 @@ function insert_searchable_sites_from_file($filename, $lines_from_file = null) {
 
 
 
+function redir($page, $includeQuery = false) {
+	$base = basename($_SERVER["SCRIPT_FILENAME"]);
+	if($page == $base || $page == "/$base") {
+   	return; //don't redirect if we are already on the page
+	}
+	if($includeQuery) {
+		if($_SERVER['QUERY_STRING']) {
+			$page .= "?".$_SERVER['QUERY_STRING'];
+		}
+	}
+	header("Location: $page");
+
+	die;
+}   
+
+
 
 //UNUSED FOR NOW BELOW THIS POINT
 
@@ -197,21 +213,7 @@ function get_from_session($sid, $field, $from_pre_info = false) {
 
 	return $fieldval;
 }
-
-function redir($page, $includeQuery = false) {
-	$base = basename($_SERVER["SCRIPT_FILENAME"]);
-	if($page == $base || $page == "/$base") {
-   	return; //don't redirect if we are already on the page
-	}
-	if($includeQuery) {
-		if($_SERVER['QUERY_STRING']) {
-			$page .= "?".$_SERVER['QUERY_STRING'];
-		}
-	}
-	header("Location: $page");
-
-	die;
-}              
+           
 
 function curr_session_is_valid() {
 	if(!array_key_exists('sid', $_COOKIE)) return false;

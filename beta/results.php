@@ -126,7 +126,7 @@
 		foreach($good_arr as $k => $v) {
 		
 			echo "<div id='results$k'></div>";
-			$good_arr[$k] = "result_section.php?q=$query&num=3";
+			$good_arr[$k] = "result_section.php?q=$query&section_num=$k&num=3";
 
 		}
 

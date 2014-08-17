@@ -6,7 +6,7 @@
 		// gets the json object from google
 		$json_obj = file_get_contents($url);
 
-		var_dump($json_obj);
+		//var_dump($json_obj);
 
 		// keep track of the little tidbits that google adds to their json object
 		$start = 'json(';

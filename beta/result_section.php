@@ -1,6 +1,7 @@
 <?php
 
 	include_once("executesearch.php");
+	include_once('admin/functions.php');
 
 	if(isset($adult) && $adult) {
 		include_once("adult/html_boilerplate.php");
@@ -17,12 +18,24 @@
 		$start = urlencode($_GET['start']);
 	}   
 
+	$section_num = 1;
+	if(array_key_exists('section_num', $_GET)) {
+		$section_num = intval($_GET['section_num']);
+	} 
+
 	if(array_key_exists('num', $_GET)) {
 		$num = intval($_GET['num']);
 	}
 	else { 
 		$num=10;
 	}
+
+   $title = 'Generic';
+   $section_name = runQuery('SELECT name FROM search_categories WHERE id='.$section_num);
+	$section_name = $section_name[0]['name'];
+
+
+
 
 	// Code for getting the results from the Google Custom Search Engine
 	$url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyDBzCfhslTSWG6hVgaZ9eFgVqc1Ck5jxRE&cx=013942562424063258541:ofu8c_sygk4&q={$query}&start={$start}&callback=json&num=$num";
@@ -136,13 +149,54 @@
 */
 
 		//todo:change the ids here
-		// Wrap the general medical search in its own section
-		echo "<div id='general_search_section'>";
+		// Wrap the general medical search in its own section                     o
+      echo '
+      <script>
+		function togglePlusMinus(section_num) {
+			
+         me = $("#result_wrapper"+section_num);
 
-			// Print out 'General Medical Search' header
-			echo "<div id='general_header'>General Medical Search</div>";
+			me.toggle();
+
+			myimg = $("#general_search_section"+section_num+" img:eq(0)");
+
+			if(myimg.attr("src").indexOf("minus") > -1) {
+         	myimg.attr("src", "myHealthSitesImgs/plus.png");
+			}
+			else {
+         	myimg.attr("src", "myHealthSitesImgs/minus.png");
+			}
+		}
+
+		</script>
+
+		<style>
+		.plusminus {
+      	float:right;
+		}
+
+		</style>
+
+
+
+		';
+
+		echo "<div class='general_search_section' id='general_search_section$section_num' class='general_search_section'>";
+
+			// Print out title header
+			echo "<div id='general_header'>$section_name
+			 <img class='plusminus' id='plusminus$section_num' onclick='togglePlusMinus($section_num);'  src='myHealthSitesImgs/minus.png' />
+			
+			</div>
+			
+			<div id='result_wrapper".$section_num."'>
+			
+			
+			";
 
 			// Loop that prints out each result that was returned, default here will be 10
+
+
 			if(!array_key_exists('items', $results)) {
          	echo "There has been a problem fetching your results. We are sorry for the inconvenience.";
 				die;
@@ -154,7 +208,7 @@
 				$formatted_link = $result['formattedUrl'];
 				$result_snippet = $result['snippet'];
 				// Print out each result title, link, and snippet
-				echo "<div id='result'>
+				echo "<div class='.result' id='result'>
 						<a id='title_link' href='{$result_link}'><span id='result_title'>{$result_title}</span></a><br>
 						<a id='result_link' href='{$result_link}'>{$formatted_link}</a><br>
 						<span id='result_snip'>{$result_snippet}</span>
@@ -192,7 +246,7 @@
 			else {
          	echo '&nbsp;Next';
 			}
-			echo "</span></div>";
+			echo "</span></div></div>";
 
 		// Close the general medical search section
 		echo "</div>";

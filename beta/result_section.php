@@ -161,10 +161,10 @@
 			myimg = $("#general_search_section"+section_num+" img:eq(0)");
 
 			if(myimg.attr("src").indexOf("minus") > -1) {
-         	myimg.attr("src", "myHealthSitesImgs/plus.png");
+         	myimg.attr("src", "img/plus.png");
 			}
 			else {
-         	myimg.attr("src", "myHealthSitesImgs/minus.png");
+         	myimg.attr("src", "img/minus.png");
 			}
 		}
 
@@ -185,7 +185,7 @@
 
 			// Print out title header
 			echo "<div id='general_header'>$section_name
-			 <img class='plusminus' id='plusminus$section_num' onclick='togglePlusMinus($section_num);'  src='myHealthSitesImgs/minus.png' />
+			 <img class='plusminus' id='plusminus$section_num' onclick='togglePlusMinus($section_num);'  src='img/minus.png' />
 			
 			</div>
 			

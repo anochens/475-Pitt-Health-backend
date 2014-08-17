@@ -27,7 +27,7 @@
 
 		echo "<div id='header'>
 				<!--<h1 id='mainheader'>MyHealthSites</h1>-->
-				<div id='headerimgdiv'><img id='headerimg' src='myHealthSitesImgs/logo_cartoony.jpg' alt='My Health Sites'></div>
+				<div id='headerimgdiv'><img id='headerimg' src='img/logo_cartoony.jpg' alt='My Health Sites'></div>
 		  	  </div>";
 
 	}
@@ -57,7 +57,7 @@
 
 	function print_doctor() {
 
-		echo "<div id= doctor_picture_div><img id=cartoon_doctor_img src= 'myHealthSitesImgs/cartoonDoctor.png' alt= 'cartoon doctor'> </div>";
+		echo "<div id= doctor_picture_div><img id=cartoon_doctor_img src= 'img/cartoonDoctor.png' alt= 'cartoon doctor'> </div>";
 
 	}
 
@@ -66,12 +66,12 @@
 		// Print out the footer with social outlet logos
 		echo "<div class='footer' id = footer_bar><div id = centered_footer><span id='legal'>Copyright &copy; 2013 - MyHealthSites.com | All Rights Reserved</span>
 				<div id='socialoutlets'>
-					<span id='facebook_logo'><a href='http://www.facebook.com/myhealthsites' target='_blank'><img src='myHealthSitesImgs/facebook.png'></a></span>
-					<span id='linkedin_logo'><img src='myHealthSitesImgs/linkedin.png'></span>
-					<span id='youtube_logo'><img src='myHealthSitesImgs/youtube.png'></span>
-					<span id='twitter_logo'><a href='https://twitter.com/myhealthsites' target='_blank'><img src='myHealthSitesImgs/twitter.png'></a></span>
-					<span id='rss_logo'><img src='myHealthSitesImgs/rss.png'></span>
-					<span id='googleplus_logo'><img src='myHealthSitesImgs/g+.png'></span>
+					<span id='facebook_logo'><a href='http://www.facebook.com/myhealthsites' target='_blank'><img src='img/facebook.png'></a></span>
+					<span id='linkedin_logo'><img src='img/linkedin.png'></span>
+					<span id='youtube_logo'><img src='img/youtube.png'></span>
+					<span id='twitter_logo'><a href='https://twitter.com/myhealthsites' target='_blank'><img src='img/twitter.png'></a></span>
+					<span id='rss_logo'><img src='img/rss.png'></span>
+					<span id='googleplus_logo'><img src='img/g+.png'></span>
 				</div></div></div>";
 
 	}

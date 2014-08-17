@@ -2,7 +2,7 @@
 body { margin: 0px; font-family: 'Maven Pro', sans-serif; z-index:1 }
 
 /* CSS realated to the main content wrapper of the page */
-#main_wrapper { background-color: rgb(228,219,181); padding-top: 10px; min-height: 492px; max-height:1500px;width:100%; display:table }
+#main_wrapper { background-color: rgb(228,219,181); padding-top: 10px; min-height: 492px; max-height:1500px;min-width: 1225px;display:table }
 #main_wrapper_results { background-color: rgb(228,219,181); padding-top: 10px; overflow: hidden; height: 1400px; }
 #content_wrapper { margin-left:190px;}
 
@@ -11,10 +11,10 @@ body { margin: 0px; font-family: 'Maven Pro', sans-serif; z-index:1 }
 
 /* CSS related to the header */
 #headerimgdiv { position: absolute; left: 190px; }
-#header { height: 120px; background-color: rgb(246,246,246); }
+#header { min-width:1225px; height: 120px; background-color: rgb(246,246,246); }
 
 /* CSS related to the navbar */
-#navbar { background-color: rgb(171,5,26); padding-top: 10px; padding-bottom: 10px; height: 15px; }
+#navbar { min-width:1225px; background-color: rgb(171,5,26); padding-top: 10px; padding-bottom: 10px; height: 15px; }
 #sub_navbar { color: white; position: absolute; left: 190px; }
 #homelink { color: white; }
 #aboutlink { color: white; }
@@ -74,12 +74,15 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 #search_button:hover { background-color: #ff322f; }
 
 /* CSS related to the main search basic page */
-#doctor_picture_div {position: absolute;top: 170px; left: 755px; }
+#doctor_picture_div {position: absolute;top: 162px; left: 755px; }
 #cartoon_doctor_img { position:relative;z-index:2 }
 
 /* CSS related to filtering interface */
 .filtering_wrapper { background-color:white; display:inline-block; padding:5px, padding-bottom:10px;margin-bottom:20px}
 .filtering_wrapper td {color: rgb(52,107,229); font-size:150%;;  }
+
+#toggler { padding:5px; position:relative; right:0px; }
+#toggler_link { font-size:150%; position:relative; left:355px;cursor: pointer; text-align:right}
 .left {width:500px; }                                 
 
 /* CSS for general bar */

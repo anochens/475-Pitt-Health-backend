@@ -25,7 +25,24 @@ $(document).ready(function() {
 	});
 });
 
+function toggleAdvanced() {
+   $('.filtering_wrapper').toggle(600);
+
+	if($('#toggler_link').html() == 'Simple search') {
+   	$('#toggler_link').html('Advanced search');
+	}
+	else {
+   	$('#toggler_link').html('Simple search');
+	}
+}
+
 </script>
+
+<div id='toggler'>
+	<a onclick='toggleAdvanced();' id='toggler_link'>Simple search</a>
+</div>
+
+<br/>
 
 <div class='filtering_wrapper' class='generic_background_section'>
 	<table>

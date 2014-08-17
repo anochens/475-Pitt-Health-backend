@@ -105,7 +105,7 @@ function toggleAdvanced() {
 	foreach($res as $cat) {
 		if($cat['is_iama'] == '1') continue;
 
-		echo "<tr><td style='width:50%'>".$cat['name']."</td>";;
+		echo "<tr><td class='left'>".$cat['name']."</td>";;
 
 		//switch out for slider eventually
 		echo "<td><input type='text' value='100' name='personalize_".$cat['id']."i' /></td></tr>";
@@ -116,9 +116,8 @@ function toggleAdvanced() {
 
 
 	<tr>
-		<td></td>
 
-		<td>
+		<td colspan='2' style='text-align:right;padding-top:10px'>
 			Videos <input value='1' type='checkbox' name='want_videos' />
 			Images <input value='1' type='checkbox' name='want_images' />
 		</td>

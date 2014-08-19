@@ -185,45 +185,27 @@
 
 */
 
-		// Wrap the general medical search in its own section                     o
-      echo '
+		?>
       <script>
 		function togglePlusMinus(section_num) {
-			
-         me = $("#result_wrapper"+section_num);
+
+			me = $("#result_wrapper"+section_num);
 			me.toggle();
-         
-         $("#general_search_section"+section_num+" button").toggle();
-          
+
+			$("#general_search_section"+section_num+" button").toggle();
+
 			myimg = $("#general_search_section"+section_num+" img:eq(0)");
 
 			if(myimg.attr("src").indexOf("minus") > -1) {
-         	myimg.attr("src", "img/plus.png");
+				myimg.attr("src", "img/plus.png");
 			}
 			else {
-         	myimg.attr("src", "img/minus.png");
+				myimg.attr("src", "img/minus.png");
 			}
 		}
 
-		</script>
-
-		<style>
-		.plusminus {
-      	float:right;
-		}
-
-		</style>
-
-
-
-
-
-		';
-        echo "
-		  
-		  <script>
-		  function reloadFor$section_num(next) {
-			";
+		function reloadFor$section_num(next) {
+		<?php
 
 			$url = "result_section.php?";
 			$url .= "q=$query&num=3&section_num=$section_num";

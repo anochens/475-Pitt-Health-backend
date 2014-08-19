@@ -153,7 +153,8 @@
 			</script>
 			";
 
-
+			$numbers='';
+            /*
          echo "<div id='buttons$k' style='position:relative;top:-50px;width:300px;margin-left:auto;margin-right:auto'>";
 			$numbers = '';
 			for($i=1;$i<=10;$i++) {
@@ -161,7 +162,7 @@
 			}        
 			echo $numbers;
 			echo "</div>";
-
+              */
 		}
 
 		?>

@@ -13,9 +13,9 @@
 	//for pagination. will need to be fixed for division
 	$query = urlencode($_GET['q']);
 	if(!isset($_GET['start'])) {
-		$start = urlencode("1");
+		$start = '1';
 	} else {
-		$start = urlencode($_GET['start']);
+		$start = intval($_GET['start']);
 	}   
 
 	$section_num = 1;
@@ -30,14 +30,14 @@
 		$num=10;
 	}
 
-	$sites = '*';
-	$pattern = '/^((\d*),?)+$/';
+	$sites = ''; //blank is all sites in search engine
+	$pattern = '/^((\d+),?)+$/';
 	if(array_key_exists('sites',$_GET)) {
 		$sites = $_GET['sites'];
 
 		if(!preg_match($pattern, $sites)) {
 			print('Invalid site specifier');
-			$sites='*';
+			$sites='';
 		}
 	}
 
@@ -47,26 +47,34 @@
    $section_name = runQuery('SELECT name FROM search_categories WHERE id='.$section_num);
 	$section_name = $section_name[0]['name'];
 
-	$sites = runQuery("SELECT url from searchable_sites WHERE id IN($sites)", $db, true, false);
+	$site_numbers='';
+	if($sites) {
+		$site_numbers=$sites;
+		$sites = runQuery("SELECT url from searchable_sites WHERE id IN($sites)", $db, true, false);
 
-	$numsites = 10;
-	if(count($sites) > $numsites) {
-		$sites = array_slice($sites, 0, $numsites);
+		$numsites = 10;
+		if(count($sites) > $numsites) {
+			$sites = array_slice($sites, 0, $numsites);
+		}
+
+		$sites = join(' || ', $sites);
+
 	}
-//	var_dump($sites);
 
-
-	$sites = join(' || ', $sites);
-	$sites = urlencode($sites);
 
 	$key = "AIzaSyDBzCfhslTSWG6hVgaZ9eFgVqc1Ck5jxRE&";
 	$cx = "013942562424063258541:ofu8c_sygk4&";
 
+	$sites_str = '';
+	if($sites) {
+		$sites_str = " site:($sites)";
+	}
+
+	$sites_str = urlencode($sites_str);
 
 	// Code for getting the results from the Google Custom Search Engine
-	$url = "https://www.googleapis.com/customsearch/v1?key=$key&cx=$cx&q={$query}%20site:($sites)&start={$start}&callback=json&num=$num";
+	$url = "https://www.googleapis.com/customsearch/v1?key=$key&cx=$cx&q={$query}$sites_str&start={$start}&callback=json&num=$num";
 	//$url = "https://www.googleapis.com/customsearch/v1";
-
 
 	$results = execute_search($url);
 
@@ -183,9 +191,10 @@
 		function togglePlusMinus(section_num) {
 			
          me = $("#result_wrapper"+section_num);
-
 			me.toggle();
-
+         
+         $("#general_search_section"+section_num+" button").toggle();
+          
 			myimg = $("#general_search_section"+section_num+" img:eq(0)");
 
 			if(myimg.attr("src").indexOf("minus") > -1) {
@@ -207,7 +216,27 @@
 
 
 
+
+
 		';
+        echo "
+		  
+		  <script>
+		  function reloadFor$section_num(next) {
+			";
+
+			$url = "result_section.php?";
+			$url .= "q=$query&num=3&section_num=$section_num";
+			$url .= "&sites=$site_numbers";
+
+			echo "$('#results$section_num .result_wrapper').html('<h1><center>Loading</center></h1>');";
+			echo "$('#results$section_num .result_wrapper').load('$url&start='+next+' .result_wrapper')";
+			
+		  echo "}";
+		  
+		  echo "</script>";
+
+
 
 		echo "<div class='general_search_section' id='general_search_section$section_num' class='general_search_section'>";
 
@@ -217,7 +246,7 @@
 			
 			</div>
 			
-			<div id='result_wrapper".$section_num."'>
+			<div class='result_wrapper' id='result_wrapper".$section_num."'>
 			
 			
 			";
@@ -227,6 +256,7 @@
 
 			if(!array_key_exists('items', $results)) {
          	echo "There has been a problem fetching your results. We are sorry for the inconvenience.";
+				var_dump($results);
 				die;
 			}
 			
@@ -242,7 +272,16 @@
 						<span id='result_snip'>{$result_snippet}</span>
 					  </div>";
 			}
-			echo "<br><br><br>";
+
+		// Close the ressult wrapper
+			echo "</div>";                                                            
+			$next = $start + 3;
+			echo "<button style='float:right' onclick='reloadFor$section_num($next)'>More</button>";
+			?>
+
+
+
+			<?php
 
 //			echo "<div id='forward_back'>";
 //			echo "<span>";
@@ -277,8 +316,6 @@
 //			}
 //			echo "</span></div></div>";
 
-		// Close the general medical search section
-		echo "</div>";
 
 		//close content wrapper
 		echo "</div>"; 

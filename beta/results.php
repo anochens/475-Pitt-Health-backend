@@ -85,7 +85,7 @@
 		//create a mapping of categories to their respective sites
 		//from the data in the database
 		$db = db_connect();
-		$q = 'SELECT url, categories FROM searchable_sites';
+		$q = 'SELECT id, categories FROM searchable_sites';
 		$sites = runQuery($q, $db);
       
 		$cats_to_sites = array();
@@ -98,9 +98,15 @@
          	if(!array_key_exists($cat, $cats_to_sites)) {
             	$cats_to_sites[$cat] = array();
 				}
-				$cats_to_sites[$cat][] = $site['url'];
+				$cats_to_sites[$cat][] = $site['id'];
 			}
 		}
+
+
+
+		$not_iama_cats = runQuery('SELECT id FROM search_categories WHERE is_iama=0', $db, true, false);
+
+
 
 		//now remove the ones that we do not want
 		$good_arr = array();
@@ -124,9 +130,37 @@
 
       //now create a section for each good one
 		foreach($good_arr as $k => $v) {
-		
-			echo "<div id='results$k'></div>";
-			$good_arr[$k] = "result_section.php?q=$query&section_num=$k&num=3";
+			$sites = implode(',',$v);
+
+			if(in_array($k, $not_iama_cats)) {
+				$good_arr[$k] = "result_section.php?q=$query&section_num=$k&num=3&sites=$sites";
+			}
+			else {
+         	unset($good_arr[$k]);
+				continue;
+			}           	
+			echo "<div id='results{$k}'></div>";
+
+			echo "
+			<script>
+
+			function clear(k) {
+         	$('#buttons'+k+' button').each(function() {
+					$(this).removeAttr('disabled');
+				});
+			}
+
+			</script>
+			";
+
+
+         echo "<div id='buttons$k' style='position:relative;top:-50px;width:300px;margin-left:auto;margin-right:auto'>";
+			$numbers = '';
+			for($i=1;$i<=10;$i++) {
+				$numbers .= "<button onclick=\"clear($k);$('#results$k').load('".$good_arr[$k]."&start=".((($i-1)*10)+1)."');$(this).attr('disabled', 'disabled');\">$i</button>";
+			}        
+			echo $numbers;
+			echo "</div>";
 
 		}
 
@@ -138,7 +172,19 @@
 
 		//fill the sections
 		foreach($good_arr as $k => $v) {
-			echo "$('#results$k').load('$v');\n\t\t";
+                                    /*
+			$numbers = '';
+			for($i=1;$i<=10;$i++) {
+				$numbers .= "<button onclick=\"$(\'#results$k\').load(\'$v&start=".((($i-1)*10)+1)."\')\">$i</button>";
+
+			}                            */                            
+
+
+			echo "$('#results$k').load('$v', function() {
+//			$('#results$k').append('$numbers');
+				
+			});\n\t\t";
+
 
 		}           
 		?>

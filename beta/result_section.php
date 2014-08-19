@@ -30,15 +30,44 @@
 		$num=10;
 	}
 
+	$sites = '*';
+	$pattern = '/^((\d*),?)+$/';
+	if(array_key_exists('sites',$_GET)) {
+		$sites = $_GET['sites'];
+
+		if(!preg_match($pattern, $sites)) {
+			print('Invalid site specifier');
+			$sites='*';
+		}
+	}
+
+
+
    $title = 'Generic';
    $section_name = runQuery('SELECT name FROM search_categories WHERE id='.$section_num);
 	$section_name = $section_name[0]['name'];
 
+	$sites = runQuery("SELECT url from searchable_sites WHERE id IN($sites)", $db, true, false);
 
+	$numsites = 10;
+	if(count($sites) > $numsites) {
+		$sites = array_slice($sites, 0, $numsites);
+	}
+//	var_dump($sites);
+
+
+	$sites = join(' || ', $sites);
+	$sites = urlencode($sites);
+
+	$key = "AIzaSyDBzCfhslTSWG6hVgaZ9eFgVqc1Ck5jxRE&";
+	$cx = "013942562424063258541:ofu8c_sygk4&";
 
 
 	// Code for getting the results from the Google Custom Search Engine
-	$url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyDBzCfhslTSWG6hVgaZ9eFgVqc1Ck5jxRE&cx=013942562424063258541:ofu8c_sygk4&q={$query}&start={$start}&callback=json&num=$num";
+	$url = "https://www.googleapis.com/customsearch/v1?key=$key&cx=$cx&q={$query}%20site:($sites)&start={$start}&callback=json&num=$num";
+	//$url = "https://www.googleapis.com/customsearch/v1";
+
+
 	$results = execute_search($url);
 
 	$pageNext = 2;
@@ -148,7 +177,6 @@
 
 */
 
-		//todo:change the ids here
 		// Wrap the general medical search in its own section                     o
       echo '
       <script>
@@ -184,8 +212,8 @@
 		echo "<div class='general_search_section' id='general_search_section$section_num' class='general_search_section'>";
 
 			// Print out title header
-			echo "<div id='general_header'>$section_name
-			 <img class='plusminus' id='plusminus$section_num' onclick='togglePlusMinus($section_num);'  src='img/minus.png' />
+			echo "<div id='general_header' onclick='togglePlusMinus($section_num);' >$section_name
+			 <img class='plusminus' id='plusminus$section_num'  src='img/minus.png' />
 			
 			</div>
 			
@@ -214,39 +242,40 @@
 						<span id='result_snip'>{$result_snippet}</span>
 					  </div>";
 			}
+			echo "<br><br><br>";
 
-			echo "<div id='forward_back'>";
-			echo "<span>";
-			
-			if($pagePrev > 0) {
-				echo "<a id='prev_page' href='results.php?q={$query}&start={$pagePrev}'>Previous</a>";
-			}
-			else {
-				echo "Previous";
-			}
-			
-			echo "&nbsp;</span>";
-
-			for($i=1;$i<=10;$i++) {
-				$startLocal = (($i-1)*10)+1;
-
-				if($i == 0) $i='Previous';
-				if($start == $startLocal) {
-            	echo $i;
-				}          
-				else {
-					echo "<span><a id='page' href='results.php?q={$query}&start=$startLocal'>$i</a></span>";
-				}
-			}
-
-			echo "<span>";
-			if($pageNext < 100) { //no more results
-				echo "<a id='next_page' href='results.php?q={$query}&start={$pageNext}'>Next</a>";
-			}
-			else {
-         	echo '&nbsp;Next';
-			}
-			echo "</span></div></div>";
+//			echo "<div id='forward_back'>";
+//			echo "<span>";
+//			
+//			if($pagePrev > 0) {
+//				echo "<a id='prev_page' href='results.php?q={$query}&start={$pagePrev}'>Previous</a>";
+//			}
+//			else {
+//				echo "Previous";
+//			}
+//			
+//			echo "&nbsp;</span>";
+//
+//			for($i=1;$i<=10;$i++) {
+//				$startLocal = (($i-1)*10)+1;
+//
+//				if($i == 0) $i='Previous';
+//				if($start == $startLocal) {
+//            	echo $i;
+//				}          
+//				else {
+//					echo "<span><a id='page' href='results.php?q={$query}&start=$startLocal'>$i</a></span>";
+//				}
+//			}
+//
+//			echo "<span>";
+//			if($pageNext < 100) { //no more results
+//				echo "<a id='next_page' href='results.php?q={$query}&start={$pageNext}'>Next</a>";
+//			}
+//			else {
+//         	echo '&nbsp;Next';
+//			}
+//			echo "</span></div></div>";
 
 		// Close the general medical search section
 		echo "</div>";
@@ -257,4 +286,4 @@
 	// Close the main page wrapper
 	echo "</div>";
 
-
+die;

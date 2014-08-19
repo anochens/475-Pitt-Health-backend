@@ -23,7 +23,7 @@ function get_ip() {
 	return $_SERVER['REMOTE_ADDR'];
 }
 
-function runQuery($q, $db = null, $return = true) {
+function runQuery($q, $db = null, $return = true, $assoc = true) {
 	if(!$db) {
    	$db = db_connect();
 	}
@@ -31,7 +31,14 @@ function runQuery($q, $db = null, $return = true) {
    try {
       $results = $db->query($q);
       if($return) {
-         return $results->fetchAll(PDO::FETCH_ASSOC);
+
+			if($assoc) {
+				return $results->fetchAll(PDO::FETCH_ASSOC);
+			}
+			else {
+				return $results->fetchAll(PDO::FETCH_COLUMN);
+			}
+				
       }
    }
    catch(PDOException $e) {

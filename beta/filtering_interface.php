@@ -24,8 +24,18 @@ $(document).ready(function() {
 		checkboxes = $('input:checkbox');
 		for(i=0;i<checkboxes.length;i++) {
 			checkboxes[i] = $(checkboxes[i]);
-			extras += "&"+[checkboxes[i].attr('name')] +"="+ checkboxes[i].val();
+			extras += "&"+checkboxes[i].attr('name') +"="+ checkboxes[i].val();
 		}
+
+		sliders = $('.slider');
+
+		for(i=0;i<sliders.length;i++) {
+			sliders[i] = $(sliders[i]);
+			value = sliders[i].slider("value");
+			console.log(value);
+			console.log('---------');
+			extras += "&"+sliders[i].attr('name') +"="+ value;
+		}        
 		
 
 		formvars = $('form').serialize(); //get data from all forms on the page at once
@@ -95,6 +105,38 @@ function toggleAdvanced() {
 
 <br>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  
+
+
+  <script>
+  $(function() {
+    $(".slider").slider({
+      value:50,
+      min: 0,
+      max: 100,
+      step: 40,
+		animate:'fast',
+      slide: function(event, ui) {
+        $(this).val('$' + ui.value);
+      }
+    });
+    //$(this).val($(this).slider("value"));
+  });
+  </script>
+
+<style>
+.ui-slider .ui-slider-handle { height:.7em; width:.5em;margin-top:3px; border-radius:30px; }
+.ui-slider { background: rgb(235, 235, 235); height:5px }
+.slider { width:150px; margin-right:30px}
+.filtering_wrapper tr { padding-bottom:5px}
+.ui-widget-content .ui-state-default { background:rgb(241, 0, 0) }
+
+</style>
+
+
 <div class='filtering_wrapper' class='generic_background_section'>
 	<table>
 	<form id='filter_form2'>
@@ -107,12 +149,15 @@ function toggleAdvanced() {
 
 		echo "<tr><td class='left'>".$cat['name']."</td>";;
 
-		//switch out for slider eventually
-		echo "<td><input type='text' value='100' name='personalize_".$cat['id']."i' /></td></tr>";
+
+		echo "<td><div class='slider ui-corner-all' name='personalize_".$cat['id']."' ></div></td></tr>";
+		//echo "<td><input type='text' value='100' name='personalize_".$cat['id']."i' /></td></tr>";
 		
 	}
 
 	?>
+
+
 
 
 	<tr>

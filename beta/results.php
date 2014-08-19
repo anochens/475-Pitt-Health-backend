@@ -79,7 +79,7 @@
 
 	function processFiltering() {
 		$filteredData = array();
-		$pattern = '/^(IAmA|personalize)_(\d+)i$/';
+		$pattern = '/^(IAmA|personalize)_(\d+)$/';
 		$captures = array();
 
 		//create a mapping of categories to their respective sites
@@ -110,7 +110,6 @@
 
 		//now remove the ones that we do not want
 		$good_arr = array();
-		$keepers = array(100, '1');
 
 		foreach($_REQUEST as $k => $v) {
 
@@ -120,7 +119,7 @@
 
 			$id_of_cat = intval($captures[2]);
 
-			if(in_array($v, $keepers)) {
+			if(intval($v)>=50 || $v == '1') {
 				$good_arr[$id_of_cat] = $cats_to_sites[$id_of_cat];
 			}
 

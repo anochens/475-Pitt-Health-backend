@@ -204,8 +204,8 @@
 			}
 		}
 
-		function reloadFor$section_num(next) {
 		<?php
+		echo "function reloadFor$section_num(next) {";
 
 			$url = "result_section.php?";
 			$url .= "q=$query&num=3&section_num=$section_num";

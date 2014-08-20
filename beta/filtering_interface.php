@@ -128,6 +128,14 @@ function toggleAdvanced() {
   </script>
 
 
+<style>
+.ui-slider .ui-slider-handle { height:.5em; width:.5em;margin-top:3px; border-radius:30px; }
+.ui-slider { background: rgb(235, 235, 235); height:5px }
+.slider { width:150px; margin-right:30px}
+.filtering_wrapper tr { padding-bottom:5px}
+.ui-widget-content .ui-state-default { background:rgb(241, 0, 0) }
+
+</style>
 
 <div class='filtering_wrapper' class='generic_background_section'>
 	<table>

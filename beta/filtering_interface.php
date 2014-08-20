@@ -11,7 +11,7 @@ $res = runQuery($q, $db);
 ?>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
                                      
 <script>
@@ -32,8 +32,6 @@ $(document).ready(function() {
 		for(i=0;i<sliders.length;i++) {
 			sliders[i] = $(sliders[i]);
 			value = sliders[i].slider("value");
-			console.log(value);
-			console.log('---------');
 			extras += "&"+sliders[i].attr('name') +"="+ value;
 		}        
 		
@@ -106,7 +104,7 @@ function toggleAdvanced() {
 <br>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/jquery-latest.min.js"></script>
   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
   
 

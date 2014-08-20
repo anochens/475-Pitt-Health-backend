@@ -10,7 +10,6 @@
 		include_once("html_boilerplate.php");
 	}
 
-	//for pagination. will need to be fixed for division
 	$query = urlencode($_GET['q']);
 	if(!isset($_GET['start'])) {
 		$start = '1';
@@ -236,7 +235,7 @@
 			// Loop that prints out each result that was returned, default here will be 10
 
 
-			if(!array_key_exists('items', $results)) {
+			if(!$results || !array_key_exists('items', $results)) {
          	echo "There has been a problem fetching your results. We are sorry for the inconvenience.";
 				var_dump($results);
 				die;

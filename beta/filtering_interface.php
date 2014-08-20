@@ -131,11 +131,25 @@ function toggleAdvanced() {
 <style>
 .ui-slider .ui-slider-handle { height:.5em; width:.5em;margin-top:3px; border-radius:30px; }
 .ui-slider { background: rgb(235, 235, 235); height:5px }
-.slider { width:150px; margin-right:30px}
+.slider { width:150px;}
 .filtering_wrapper tr { padding-bottom:5px}
 .ui-widget-content .ui-state-default { background:rgb(241, 0, 0) }
+.sliderhead{ } 
 
 </style>
+
+<script>
+function moveSlider(forward, cat_id) {
+	target = $('#personalize_'+cat_id);
+   newVal = forward*40+target.slider("value");
+
+	if(newVal<50) newVal=50;
+	if(newVal>90) newVal=90;
+
+	target.slider('value', newVal);
+}
+
+</script>
 
 <div class='filtering_wrapper' class='generic_background_section'>
 	<table>
@@ -144,13 +158,22 @@ function toggleAdvanced() {
 	 
 	<?php
 
+	$imgsrc = 'height:20px; width:20px';
+
 	foreach($res as $cat) {
 		if($cat['is_iama'] == '1') continue;
-
+		$sliderminus = '<img onclick="moveSlider(-1,'.$cat['id'].')" style="'.$imgsrc.'" src="img/sliderminus.png" />';
+		$sliderplus = '<img onclick="moveSlider(1,'.$cat['id'].')" style="'.$imgsrc.'" src="img/sliderplus.png" />';
+                         
 		echo "<tr><td class='left'>".$cat['name']."</td>";;
 
 
-		echo "<td><div class='slider ui-corner-all' name='personalize_".$cat['id']."' ></div></td></tr>";
+		echo "<td class='sliderhead'> 
+		<table><tr>
+			<td>$sliderminus</td>
+			<td><div class='slider' id='personalize_".$cat['id']."' name='personalize_".$cat['id']."' ></div></td>
+			<td>$sliderplus</td>
+		</table></tr>";
 		//echo "<td><input type='text' value='100' name='personalize_".$cat['id']."i' /></td></tr>";
 		
 	}

@@ -47,14 +47,37 @@ if($sites) {
 var resultsCache = [];
 var resultsCache_i = 0;
 
+function formatResults(results) {
+   all_results = [];
+
+	for(i=0;i<results.length;i++) {
+      result = results[i];
+
+		result_title = result['title'];
+		result_link = result['link'];
+		formatted_link = result['formattedUrl'];
+		result_snippet = result['snippet'];
+		// Print out each result title, link, and snippet
+		
+		resultFormatted = '';
+		resultFormatted +="<div class='.result' id='result'>"; 
+		resultFormatted +="	<a id='title_link' href='"+result_link+"'><span id='result_title'>"+result_title+"</span></a><br>"; 
+		resultFormatted +="	<a id='result_link' href='"+result_link+"'>"+formatted_link+"</a><br>"; 
+		resultFormatted +="	<span id='result_snip'>"+result_snippet+"</span>";
+		resultFormatted +="	</div>";
+
+ 		all_results.push(resultFormatted);
+	}
+
+	return all_results.join(" <br/>\n\n");
+}
+
+
 function getResultsFromCache(num_results) {
 
 	//if there aren't enough results left in the cache
 	if(resultsCache.length <= resultsCache_i+num_results) {
-		console.log('refilling');
 		refillCache();
-		console.log('new cache is');
-		console.log(resultsCache);
 	}
 
 	//we reached the end, there are no more results to populate the cache with
@@ -152,7 +175,7 @@ function refillCache() {
 
 		resultsOffset = 0;
 
-		//call function again to 
+		//call function again to refill with the new vars
 		refillCache();
 	}
 	else {
@@ -160,6 +183,7 @@ function refillCache() {
 		resultsCache = resultsCache.concat(new_items);
 	}
 }
+
 
 
 </script>

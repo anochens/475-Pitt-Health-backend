@@ -2,6 +2,7 @@
 
 	include_once("executesearch.php");
 	include_once('admin/functions.php');
+	include_once('result_functions.php');
 
 	if(isset($adult) && $adult) {
 		include_once("adult/html_boilerplate.php");
@@ -46,64 +47,6 @@
    $section_name = runQuery('SELECT name FROM search_categories WHERE id='.$section_num);
 	$section_name = $section_name[0]['name'];
 
-	$site_numbers='';
-	if($sites) {
-		$site_numbers=$sites;
-		$sites = runQuery("SELECT url from searchable_sites WHERE id IN($sites)", $db, true, false);
-
-		$numsites = 10;
-		if(count($sites) > $numsites) {
-			$sites = array_slice($sites, 0, $numsites);
-		}
-
-		$sites = join(' || ', $sites);
-
-	}
-
-
-	$key = "AIzaSyDBzCfhslTSWG6hVgaZ9eFgVqc1Ck5jxRE&";
-	$cx = "013942562424063258541:ofu8c_sygk4&";
-
-	$sites_str = '';
-	if($sites) {
-		$sites_str = " site:($sites)";
-	}
-
-	$sites_str = urlencode($sites_str);
-
-	// Code for getting the results from the Google Custom Search Engine
-	$url = "https://www.googleapis.com/customsearch/v1?key=$key&cx=$cx&q={$query}$sites_str&start={$start}&callback=json&num=$num";
-	//$url = "https://www.googleapis.com/customsearch/v1";
-
-	$results = execute_search($url);
-
-	$pageNext = 2;
-	$pagePrev = 0;
-	
-	if($results) {
-
-
-		if(array_key_exists('queries', $results)) {
-			$q = $results['queries'];
-
-			if(array_key_exists('nextPage', $q)) {
-				$pageNext = $q['nextPage'][0]['startIndex'];
-			}
-			
-			if(array_key_exists('previousPage', $q)) {
-				$pagePrev = $q['previousPage'][0]['startIndex'];
-			}
-		}
-		
-		if(array_key_exists('searchInformation', $results)) {
-
-			$searchTime = $results['searchInformation']['formattedSearchTime'];
-
-			$totalResults = $results['searchInformation']['formattedTotalResults'];
-		}
-	}
-
-//	print_header();
 
 	echo "<div id='sub_main_wrapper_results'>";
 
@@ -202,21 +145,19 @@
 				myimg.attr("src", "img/minus.png");
 			}
 		}
+		
+		function reloadFor(section_num) {
+			results = getFormattedResults(3, section_num);
+
+			$('#result_wrapper'+section_num).html(results);
+		}
+//			echo "$('#results$section_num .result_wrapper').html('<h1><center>Loading</center></h1>');";
+//			echo "$('#results$section_num .result_wrapper').load('$url&start='+next+' .result_wrapper')";
+
+		</script>  	                    
+
 
 		<?php
-		echo "function reloadFor$section_num(next) {";
-
-			$url = "result_section.php?";
-			$url .= "q=$query&num=3&section_num=$section_num";
-			$url .= "&sites=$site_numbers";
-
-			echo "$('#results$section_num .result_wrapper').html('<h1><center>Loading</center></h1>');";
-			echo "$('#results$section_num .result_wrapper').load('$url&start='+next+' .result_wrapper')";
-			
-		  echo "}";
-		  
-		  echo "</script>";
-
 
 
 		echo "<div class='general_search_section' id='general_search_section$section_num' class='general_search_section'>";
@@ -226,38 +167,18 @@
 			 <img class='plusminus' id='plusminus$section_num'  src='img/minus.png' />
 			
 			</div>
+
+			<script>
+			$(document).ready(function() {
+				reloadFor($section_num);
+			});
+			</script>
+
 			
 			<div class='result_wrapper' id='result_wrapper".$section_num."'>
-			
-			
-			";
+			</div>
 
-			// Loop that prints out each result that was returned, default here will be 10
-
-
-			if(!$results || !array_key_exists('items', $results)) {
-         	echo "There has been a problem fetching your results. We are sorry for the inconvenience.";
-				var_dump($results);
-				die;
-			}
-			
-			foreach ($results['items'] as $result) {
-				$result_title = $result['title'];
-				$result_link = $result['link'];
-				$formatted_link = $result['formattedUrl'];
-				$result_snippet = $result['snippet'];
-				// Print out each result title, link, and snippet
-				echo "<div class='.result' id='result'>
-						<a id='title_link' href='{$result_link}'><span id='result_title'>{$result_title}</span></a><br>
-						<a id='result_link' href='{$result_link}'>{$formatted_link}</a><br>
-						<span id='result_snip'>{$result_snippet}</span>
-					  </div>";
-			}
-
-		// Close the ressult wrapper
-			echo "</div>";                                                            
-			$next = $start + 3;
-			echo "<button style='float:right' onclick='reloadFor$section_num($next)'>More</button>";
+			<button style='float:right' onclick='reloadFor($section_num)'>More</button>";
 			?>
 
 

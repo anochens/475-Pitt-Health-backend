@@ -23,7 +23,9 @@
 	echo "<body>";
 
 	//for pagination. will need to be fixed for division
-	$query = urlencode($_GET['q']);
+	$query = '';
+	if(array_key_exists('q',$_GET))
+		$query = urlencode($_GET['q']);
 	if(!isset($_GET['start'])) {
 		$start = urlencode("1");
 	} else {

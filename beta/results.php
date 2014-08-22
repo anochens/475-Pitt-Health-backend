@@ -149,16 +149,10 @@
 
 		//fill the sections
 		foreach($good_arr as $k => $v) {
-                                    /*
-			$numbers = '';
-			for($i=1;$i<=10;$i++) {
-				$numbers .= "<button onclick=\"$(\'#results$k\').load(\'$v&start=".((($i-1)*10)+1)."\')\">$i</button>";
 
-			}                            */                            
 
 
 			echo "$('#results$k').load('$v', function() {
-//			$('#results$k').append('$numbers');
 				
 			});\n\t\t";
 

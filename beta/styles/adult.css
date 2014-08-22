@@ -1,0 +1,51 @@
+
+#header { background-color: #FFFFFF }
+/* CSS related to the main content wrapper of the page */
+#main_wrapper { background-color: white; }
+#main_wrapper_results { background-color: white; }
+
+/* CSS related to our goal */
+#our_goal { color: rgb(48,168,205); }
+
+/* CSS related to the navbar */
+#navbar { background-color: rgb(58,172,147); }
+#sub_navbar { color: white; }
+#homelink:hover { background-color: rgb(46,138,161); color: white; text-decoration: none; }
+#aboutlink:hover { background-color: rgb(46,138,161); color: white; text-decoration: none; }
+#serviceslink:hover { background-color: rgb(46,138,161); color: white; text-decoration: none; }
+#howworkslink:hover { background-color: rgb(46,138,161); color: white; text-decoration: none; }
+#homelink:active { color: white; text-decoration: none; }
+#aboutlink:active { color: white; text-decoration: none; }
+#serviceslink:active { color: white; text-decoration: none; }
+#howworkslink:active {  color: white; text-decoration: none; }
+#pipe { color: rgb(46,138,161); padding: 5px; }
+
+/* CSS related to the search results information */
+#result_info { color: rgb(81,36,18); }
+
+/* CSS related to the general search section */
+#general_search_section { background-color: white; border: 1px solid white; }
+#general_header { background-color: rgb(47,170,204); color: white; }
+
+/* CSS related to the recommended search section */
+#recommended_section { background-color: white; border: 1px solid white; }
+#recommended_header { background-color: rgb(92,198,175); color: white; }
+
+/* CSS related to the search results */
+#result_title { color: rgb(59,173,148); text-decoration: underline; font-weight: bold; }
+#result_link { color: rgb(59,173,148); }
+#result_snip { color: black; }
+span #prev_page { color: rgb(45,170,202);}
+span #next_page { color: rgb(45,170,202);}
+#page { color: rgb(45,170,202)}
+#page:link { color: rgb(45,170,202)}
+#page:visited { color: rgb(45,170,202) }
+#page:hover { color: rgb(46,138,161)}
+#page:active { color: black}
+
+/* CSS related to search bar form */
+#search_text_box {border: 15px solid rgb(214,234,241); }
+#search_button { background: rgb(57,147,148); color: white; }
+
+/* CSS related to the footer*/
+#footer_bar {background-color: rgb(58,172,147); color: white; }

@@ -92,7 +92,7 @@ function toggleAdvanced() {
 		if($cat['is_iama'] == '0') continue;
 
 		echo "<tr><td class='left'>".$cat['name']."</td>";;
-		echo "<td><input checked type='checkbox' value='1' name='IAmA_".$cat['id']."i' /></td></tr>";
+		echo "<td><input type='checkbox' value='0' name='IAmA_".$cat['id']."i' /></td></tr>";
 		
 	}
 
@@ -112,13 +112,13 @@ function toggleAdvanced() {
   <script>
   $(function() {
     $(".slider").slider({
-      value:50,
+      value:60,
       min: 0,
       max: 100,
-      step: 40,
+      step: 10,
 		animate:'fast',
-      slide: function(event, ui) {
-        $(this).val('$' + ui.value);
+      slider: function(event, ui) {
+		  if(ui.value < 30) ui.value=30;
       }
     });
     //$(this).val($(this).slider("value"));

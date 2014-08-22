@@ -73,9 +73,10 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 #page:active { color: black; margin: 2px; }
 
 /* CSS related to search bar form */
-#search_bar_wrapper { margin-bottom: 10px;  position:relative; z-index:3 }
+#search_bar_wrapper { position:relative; z-index:3 }
 #search_text_box { padding: 10px; border: 15px solid rgb(218,204,149); border-radius: 10px; width: 500px; }
 #search_text_box:focus { outline: none; }
+*:focus { outline: none; }
 #search_button { padding: 5px 23px; border: 0 none; cursor: pointer; background: rgb(171,5,26); color: white; border-radius: 10px; font-size: 20px; /*position: absolute; top: 15px; left: 560px;*/   }
 #search_button:hover { background-color: #ff322f; }
 
@@ -88,7 +89,7 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 .filtering_wrapper td {color: rgb(52,107,229); font-size:150%;width:100%  }
 
 #toggler { padding:5px; position:relative; right:0px; }
-#toggler_link { font-size:150%; position:relative; left:355px;cursor: pointer; text-align:right}
+#toggler_link { position:relative; left:10px;cursor: pointer; text-align:right}
 .left {width:500px; }                                 
 
 /* CSS for general bar */

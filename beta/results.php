@@ -139,29 +139,6 @@
 				continue;
 			}           	
 			echo "<div id='results{$k}'></div>";
-
-			echo "
-			<script>
-
-			function clear(k) {
-         	$('#buttons'+k+' button').each(function() {
-					$(this).removeAttr('disabled');
-				});
-			}
-
-			</script>
-			";
-
-			$numbers='';
-            /*
-         echo "<div id='buttons$k' style='position:relative;top:-50px;width:300px;margin-left:auto;margin-right:auto'>";
-			$numbers = '';
-			for($i=1;$i<=10;$i++) {
-				$numbers .= "<button onclick=\"clear($k);$('#results$k').load('".$good_arr[$k]."&start=".((($i-1)*10)+1)."');$(this).attr('disabled', 'disabled');\">$i</button>";
-			}        
-			echo $numbers;
-			echo "</div>";
-              */
 		}
 
 		?>

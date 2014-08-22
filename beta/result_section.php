@@ -152,7 +152,6 @@
 			$('#result_wrapper'+section_num).html(results);
 		}
 //			echo "$('#results$section_num .result_wrapper').html('<h1><center>Loading</center></h1>');";
-//			echo "$('#results$section_num .result_wrapper').load('$url&start='+next+' .result_wrapper')";
 
 		</script>  	                    
 
@@ -179,11 +178,7 @@
 			</div>
 
 			<button style='float:right' onclick='reloadFor($section_num)'>More</button>";
-			?>
-
-
-
-			<?php
+			
 
 //			echo "<div id='forward_back'>";
 //			echo "<span>";

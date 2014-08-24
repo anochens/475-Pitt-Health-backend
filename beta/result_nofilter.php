@@ -146,7 +146,7 @@
 					(adsbygoogle = window.adsbygoogle || []).push({});
 					</script>";
 
-			*/  /*
+			*/  
 			echo "<div id='ads'>";
 			echo "<script type='text/javascript'><!--
 					google_ad_client = 'ca-pub-3723102550752370';
@@ -161,7 +161,7 @@
 					</script>";
 			echo "</div>";
 		// Close the recommended sites section
-		echo "</div>";       */
+		echo "</div>";
 
 		// Wrap the general medical search in its own section
 		echo "<div id='general_search_section'>";

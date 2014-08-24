@@ -81,7 +81,7 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 *:focus { outline: none; }
 #search_button { padding: 5px 23px; border: 0 none; cursor: pointer; background: rgb(171,5,26); color: white; border-radius: 10px; font-size: 20px; /*position: absolute; top: 15px; left: 560px;*/   }
 #search_button:hover { background-color: #ff322f; }
-#searchbar {max-height:100px;}
+#searchbar {max-height:70px;}
 
 /* CSS related to the main search basic page */
 //#doctor_picture_div { position: absolute; top: 162px; padding-left: 575px; width:800px; margin-left: auto; margin-right:auto;display:none }
@@ -89,7 +89,7 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 
 /* CSS related to filtering interface */
 .filtering_wrapper { background-color:white; display:inline-block; padding:5px, padding-bottom:10px;margin-bottom:20px; border-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; width:550px }
-.filtering_wrapper td {color: rgb(52,107,229); font-size:150%;width:100%  }
+.filtering_wrapper td {color: rgb(52,107,229); font-size:150%;width:100%;padding-left:10px;padding-bottom:7px; padding-top:7px;  }
 
 #toggler { padding:5px; position:relative; right:0px; }
 #toggler_link { position:relative; left:10px;cursor: pointer; text-align:right}

@@ -92,7 +92,10 @@
 			<input id='search_text_box' type='text' name='q' placeholder='Diabetes, Asthma, Heart ... More' required>
 			<input id='search_button' type='submit' name='search' value='FIND'>
 		<?php
-		print_doctor();  
+
+		if(strpos($_SERVER['PHP_SELF'],'index.php') !== FALSE) {
+			print_doctor();  
+		}
 
 		echo "  </form>  ";
 		  
@@ -106,7 +109,10 @@
 		$cartoon = ($view == 'cartoony') ? 'cartoonD' : 'd';
 
 		//echo "<div id= doctor_picture_div>";
-		echo "<img id=cartoon_doctor_img src= 'img/".$cartoon."octor.png'>"; 
+		echo "<img id=cartoon_doctor_img src= 'img/".$cartoon."octor.png' usemap='doctormap'>"; 
+
+		echo "<map name='doctormap'>";
+		echo "<area shape='rect' coords='0,0,150,150' href='#' onmouseover='$(\"#search_button\").mouseover();' onclick='$(\"#search_button\").click();'></map>";
 		//echo "</div>";
 
 	}

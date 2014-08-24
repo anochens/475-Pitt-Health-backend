@@ -8,6 +8,7 @@
 
 	include("executesearch.php");
 	include('admin/functions.php');
+	include('html_boilerplate.php');
 
 	$page_title = "Search Results";
 

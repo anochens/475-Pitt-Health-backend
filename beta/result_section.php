@@ -149,7 +149,10 @@
 		function reloadFor(section_num) {
 			results = getFormattedResults(3, section_num);
 
-			if(!results) { results = 'Sorry, there are no results to display'; }
+			if(!results) { 
+				results = '<span class="error">Sorry, there are no results to display</span>';
+
+			}
 			$('#result_wrapper'+section_num).html(results);
 		}
 //			echo "$('#results$section_num .result_wrapper').html('<h1><center>Loading</center></h1>');";

@@ -114,3 +114,6 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 /* div {border:solid 5px; } / /*for debugging */
 
 .plusminus { float:right; }
+
+
+.error { padding: 10px;font-size:24px}

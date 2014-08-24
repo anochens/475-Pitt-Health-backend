@@ -147,8 +147,10 @@
 
 <?php
 
+		if(isset($totalResults)) {
 
-		echo "<div id='result_info'>About {$totalResults} ({$searchTime} seconds)</div>";
+			echo "<div id='result_info'>About {$totalResults} ({$searchTime} seconds)</div>";
+		}
 
 ?>
 
@@ -235,6 +237,8 @@
 			// Print out 'General Medical Search' header
 			echo "<div id='general_header'>General Medical Search</div>";
 
+			if(isset($result) && array_key_exists('items', $results) && count($results['items']) > 0) {
+
 			// Loop that prints out each result that was returned, default here will be 10
 			foreach ($results['items'] as $result) {
 				$result_title = $result['title'];
@@ -281,6 +285,11 @@
          	echo '&nbsp;Next';
 			}
 			echo "</span></div>";
+		}
+		else { //no results
+			echo "<span class='error'>Sorry, there are no results to display.</span>";
+
+		}
 
 		// Close the general medical search section
 		echo "</div>";

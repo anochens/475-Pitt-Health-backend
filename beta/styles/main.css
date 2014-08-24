@@ -49,7 +49,7 @@ body { margin: 0px; font-family: 'Maven Pro', sans-serif; z-index:1 }
 .generic_background_section { background-color: white; border-radius: 10px; border: 1px solid white; padding: 10px; }
 .general_search_section, #general_search_section { background-color: white; border-radius: 10px; border: 1px solid white; width: 985px; padding: 10px; /*position: absolute; top: 525px; left: 190px;*/ }
 .result_wrapper {min-height:325px;max-height:450px;}
-.general_search_section { width:700px; height:500px; position:relative }
+.general_search_section { width:700px; max-height:500px; position:relative }
 .general_search_section button { position: absolute; bottom:20px; right:20px; }
 
 #general_header { text-align: center; color: rgb(50,104,222); font-size: 30px; margin-bottom: 5px; }

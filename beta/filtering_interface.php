@@ -92,7 +92,7 @@ function toggleAdvanced() {
 		if($cat['is_iama'] == '0') continue;
 
 		echo "<tr><td class='left'>".$cat['name']."</td>";;
-		echo "<td><input type='checkbox' value='0' name='IAmA_".$cat['id']."i' /></td></tr>";
+		echo "<td><input class='checkbox' type='checkbox' value='0' name='IAmA_".$cat['id']."i' /></td></tr>";
 		
 	}
 

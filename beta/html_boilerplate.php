@@ -91,9 +91,13 @@
 
 			<input id='search_text_box' type='text' name='q' placeholder='Diabetes, Asthma, Heart ... More' required>
 			<input id='search_button' type='submit' name='search' value='FIND'>
+		<?php
+		print_doctor();  
 
-		  </form></div>
-		  <?php
+		echo "  </form>  ";
+		  
+		  
+		echo "</div>";
 
 	}
 
@@ -101,7 +105,9 @@
 		global $view;
 		$cartoon = ($view == 'cartoony') ? 'cartoonD' : 'd';
 
-		echo "<div id= doctor_picture_div><img id=cartoon_doctor_img src= 'img/".$cartoon."octor.png'> </div>";
+		//echo "<div id= doctor_picture_div>";
+		echo "<img id=cartoon_doctor_img src= 'img/".$cartoon."octor.png'>"; 
+		//echo "</div>";
 
 	}
 

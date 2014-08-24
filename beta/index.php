@@ -22,7 +22,6 @@
 
 	// start the main body of the page
 	print_searchbar();
-	print_doctor();
 
 
 	include('filtering_interface.php');
@@ -35,6 +34,7 @@
 	echo "</div>";
 
 	print_footer();
+//	print_doctor();
 
 	echo "</body>";
 ?>

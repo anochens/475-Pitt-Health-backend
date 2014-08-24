@@ -2,24 +2,24 @@
 body { margin: 0px; font-family: 'Maven Pro', sans-serif; z-index:1 }
 
 /* CSS realated to the main content wrapper of the page */
-#main_wrapper { background-color: rgb(228,219,181); padding-top: 10px; min-height: 492px; /*max-height:1500px;*/min-width: 1225px;display:table }
+#main_wrapper { background-color: rgb(228,219,181); padding-top: 10px; min-height: 492px; /*max-height:1500px;min-width: 1225px;*/ width:100%;display:table; padding-bottom:100%;padding-left:auto;padding-right:auto; }
 #main_wrapper_results { background-color: rgb(228,219,181); padding-top: 10px; min-height: 1400px; /*overflow: hidden; height: 1400px;*/ }
 #sub_main_wrapper_results { background-color: rgb(228,219,181); padding-top: 10px; }
-#content_wrapper { margin-left:190px;}
+#content_wrapper {/* margin-left:190px;*/ margin-left: auto; margin-right:auto; width:800px; padding-left:50px; }
 #sub_content_wrapper { margin-left:0px;}
 
 /* CSS related to our goal */
-#our_goal { color: rgb(82,36,16); font-size: 19px; width: 600px; margin-bottom: 20px; font-weight: bold; }
+#our_goal { color: rgb(82,36,16); font-size: 19px; width: 600px; margin-bottom: 20px; margin-top:50px;font-weight: bold; }
 
 /* CSS related to the header */
-#headerimgdiv { position: absolute; left: 190px; }
+#headerimgdiv { margin-left:auto;margin-right:auto; width:800px}
 #header { min-width:1225px; height: 120px; background-color: rgb(246,246,246); }
-#view_switcher { position:absolute; right: 150px; top:50px; color:red; text-decoration: none; font-weight:bold }
+#view_switcher { position:absolute; right: 1%; padding-right:100px;top:50px; color:red; text-decoration: none; font-weight:bold }
 
 
 /* CSS related to the navbar */
 #navbar { min-width:1225px; background-color: rgb(171,5,26); padding-top: 10px; padding-bottom: 10px; height: 15px; }
-#sub_navbar { color: white; position: absolute; left: 190px; }
+#sub_navbar { color: white; margin-left:auto;margin-right:auto;width:800px;}
 #homelink { color: white; }
 #aboutlink { color: white; }
 #serviceslink { color: white; text-decoration: none; }
@@ -75,16 +75,17 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 #page:active { color: black; margin: 2px; }
 
 /* CSS related to search bar form */
-#search_bar_wrapper { position:relative; z-index:3 }
+#search_bar_wrapper { position:relative; z-index:3;max-height:100px }
 #search_text_box { padding: 10px; border: 15px solid rgb(218,204,149); border-radius: 10px; width: 500px; }
 #search_text_box:focus { outline: none; }
 *:focus { outline: none; }
 #search_button { padding: 5px 23px; border: 0 none; cursor: pointer; background: rgb(171,5,26); color: white; border-radius: 10px; font-size: 20px; /*position: absolute; top: 15px; left: 560px;*/   }
 #search_button:hover { background-color: #ff322f; }
+#searchbar {max-height:100px;}
 
 /* CSS related to the main search basic page */
-#doctor_picture_div {position: absolute;top: 162px; left: 755px; }
-#cartoon_doctor_img { position:relative;z-index:2 }
+//#doctor_picture_div { position: absolute; top: 162px; padding-left: 575px; width:800px; margin-left: auto; margin-right:auto;display:none }
+#cartoon_doctor_img { position: relative; z-index:2;left:575px; top:-175px}
 
 /* CSS related to filtering interface */
 .filtering_wrapper { background-color:white; display:inline-block; padding:5px, padding-bottom:10px;margin-bottom:20px; border-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; width:550px }

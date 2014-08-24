@@ -131,7 +131,7 @@ function toggleAdvanced() {
 .ui-slider { background: rgb(235, 235, 235); height:5px }
 .slider { width:150px;}
 .filtering_wrapper tr { padding-bottom:5px}
-.ui-widget-content .ui-state-default { background:rgb(241, 0, 0) }
+.ui-widget-content .ui-state-default { background: rgb(171,5,26); }
 .sliderhead{ } 
 
 </style>

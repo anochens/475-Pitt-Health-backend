@@ -6,8 +6,6 @@
 		// gets the json object from google
 		$json_obj = file_get_contents($url);
 
-		//var_dump($json_obj);
-
 		// keep track of the little tidbits that google adds to their json object
 		$start = 'json(';
 		$end = ');';
@@ -21,6 +19,7 @@
 
 		// json decode the json object into an array like structure 
 		$results = json_decode($json_obj, true);
+		//var_dump($results);
 
 		// return the json object that is now an array of many arrays
 		return $results;

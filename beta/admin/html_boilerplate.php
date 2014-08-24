@@ -46,7 +46,7 @@
 		echo "<div id='search_bar_wrapper'>
 			<form id='searchbar' action='results.php' method='get' name='searchbar'>
 
-			<input id='search_text_box' type='text' name='q' placeholder='Diabetes, Asthma, Heart ... More' required>
+			<input id='search_text_box' type='text' name='q' placeholder='Diabetes, Asthma, Heart ... More'>
 			<input id='search_button' type='submit' name='search' value='FIND'>
 
 		  </form></div>";

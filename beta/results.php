@@ -9,14 +9,6 @@
 	include("executesearch.php");
 	include('admin/functions.php');
 
-	//make it very easy to switch between adult and not
-	if(isset($adult) && $adult) {
-		include("adult/html_boilerplate.php");
-	}	
-	else {
-		include("html_boilerplate.php");
-	}
-
 	$page_title = "Search Results";
 
 	print_boilerplate($page_title);
@@ -72,7 +64,7 @@
    	processFiltering();
 	}
 	else {
-   	redir("result.php.backup", true);
+   	redir("result_nofilter.php", true);
 	}
     
 

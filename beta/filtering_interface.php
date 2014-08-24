@@ -75,7 +75,7 @@ function toggleAdvanced() {
 </script>
 
 <div id='toggler'>
-	<a onclick='toggleAdvanced();' id='toggler_link'>Simple search</a>
+	<a onclick='toggleAdvanced();' id='toggler_link'>Advanced search</a>
 </div>
 
 <br/>

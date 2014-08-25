@@ -18,28 +18,12 @@ body { margin: 0px; font-family: 'Maven Pro', sans-serif; z-index:1 }
 
 
 /* CSS related to the navbar */
-#navbar { min-width:1225px; background-color: rgb(171,5,26); padding-top: 10px; padding-bottom: 10px; height: 15px; }
+#navbar { min-width:1225px; background-color: rgb(171,5,26); /*padding-top: 10px; padding-bottom: 10px;*/ height: 25px; }
 #sub_navbar { color: white; margin-left:auto;margin-right:auto;width:800px;}
-#homelink { color: white; }
-#aboutlink { color: white; }
-#serviceslink { color: white; text-decoration: none; }
-#howworkslink {  color: white; text-decoration: none; }
-#homelink:link { color: white; text-decoration: none; }
-#aboutlink:link { color: white; text-decoration: none; }
-#serviceslink:link { color: white; text-decoration: none; }
-#howworkslink:link {  color: white; text-decoration: none; }
-#homelink:visited { color: white; text-decoration: none; }
-#aboutlink:visited { color: white; text-decoration: none; }
-#serviceslink:visited { color: white; text-decoration: none; }
-#howworkslink:visited {  color: white; text-decoration: none; }
-#homelink:hover { background-color: rgb(225,50,47); color: white; text-decoration: none; }
-#aboutlink:hover { background-color: rgb(255,50,47); color: white; text-decoration: none; }
-#serviceslink:hover { background-color: rgb(255,50,47); color: white; text-decoration: none; }
-#howworkslink:hover { background-color: rgb(255,50,47); color: white; text-decoration: none; }
-#homelink:active { color: white; text-decoration: none; }
-#aboutlink:active { color: white; text-decoration: none; }
-#serviceslink:active { color: white; text-decoration: none; }
-#howworkslink:active {  color: white; text-decoration: none; }
+#homelink { color: white; background:rgb(255, 27, 0); }
+#sub_navbar a {color:white; text-decoration: none; padding-bottom:5px; padding-right: 10px; padding-left: 10px; }
+#sub_navbar a:hover { background-color: rgb(225,50,47); color: white; text-decoration: none;cursor: pointer;  }
+#sub_navbar a:active { color: white; text-decoration: none; }
 #pipe { color: rgb(255,50,47); padding: 5px;}
 
 /* CSS related to the search results information */

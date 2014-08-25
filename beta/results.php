@@ -148,19 +148,51 @@
 	<div id='results_rightside'>
 		<div class='generic_header'>Need health insurance?</div>
 
+
 		<div class='rightside_box' id='insurance_box'>
 			<div class='sub_header'>Quotes by phone*</div>
 
 			<table>
-				<tr><td style='width:10%'>Name </td><td><input style='width:48%' name='insurance_first' value='First name'> <input style='width:48%' name='insurance_last' value='Last name'></td></tr>
+				<tr><td style='width:10%'>Name </td><td><input style='width:48%' name='insurance_first' placeholder='First name'> <input style='width:48%' name='insurance_last' placeholder='Last name'></td></tr>
 			</table><table>
 				<tr><td style='width:25%'>Country Code</td><td><input size=5 name='insurance_country'></td></tr>
-				<tr><td>Phone</td><td><input style='width:100%' name='insurance_phone' value='Phone'></td></tr>
-				<tr><td>Language</td><td><input style='width:100%' name='insurance_language' value='Select Language'></td></tr>
-				<tr><td>Call when</td><td><input size=5 name='insurance_call_when' value='Now'></td></tr>
+				<tr><td>Phone</td><td><input style='width:100%' name='insurance_phone' placeholder='Phone'></td></tr>
+				<tr><td>Language</td><td><input style='width:100%' name='insurance_language' placeholder='Select Language'></td></tr>
+				<tr><td>Call when</td><td><input size=5 name='insurance_call_when' placeholder='Now'></td></tr>
 			</table>
 		</div>
 
+
+
+
+		<div class='rightside_box' id='email_box'>
+			<div class='sub_header'>Quotes by email</div>
+
+			<table>
+				<tr><td style='width:10%'>Name </td><td><input style='width:48%' name='insurance_first' placeholder='First name'> <input style='width:48%' name='insurance_last' placeholder='Last name'></td></tr>
+			</table><table>
+				<tr><td>Email</td><td><input style='width:100%' name='insurance_email' placeholder='e.g. name@healthsites.com'></td></tr>
+			</table>
+
+			Quotes by email qualify for health points<br>
+			Get FREE health videos with health points
+		</div>
+
+
+
+
+
+
+
+		<div class='rightside_box' id='online_now_box'>
+			<div class='sub_header'>Get Quotes Online Now</div>
+
+			<table>
+				<tr><td>Insurance type</td><td><input style='width:100%' name='insurance_type' placeholder='Insurance type'></td></tr>
+				<tr><td style='width:25%'>Zip</td><td><input size=5 name='insurance_zip' placeholder='Zip'></td></tr>
+			</table>
+		</div>                                      
+ 
 
 	</div>
 
@@ -189,7 +221,17 @@
 
 	#insurance_box {
    	color:white;
-		background-color:green;
+		background-color:rgb(0,181,176);
+	}
+                                    
+	#email_box {
+		color:white;
+   	background-color:rgb(113,0,93);
+	}                                 
+
+	#online_now_box {
+		color:white;
+   	background-color:rgb(0,1,95);
 	}
 
 	.sub_header {

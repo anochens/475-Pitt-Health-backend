@@ -72,7 +72,7 @@ var cx = "013942562424063258541:ofu8c_sygk4";
                       
 var cache_refill_size = 9;
      
-var site_num_include = 10; //how many sites to include in the url
+var site_num_include = 20; //how many sites to include in the url
 var upcomingCache_minSize = 5;  //doesnt need to be section dependent
 var base_search_string = "https://www.googleapis.com/customsearch/v1?key="+key+"&cx="+cx+"&num="+cache_refill_size;
 

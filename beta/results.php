@@ -124,10 +124,9 @@
 		foreach($good_arr as $k => $v) {
 			$sites = implode(',',$v);
 
-			if(in_array($k, $not_iama_cats)) {
-				$good_arr[$k] = "result_section.php?q=$query&section_num=$k&num=3&sites=$sites";
-			}
-			else {
+			$good_arr[$k] = "result_section.php?q=$query&section_num=$k&num=3&sites=$sites";
+			if(!in_array($k, $not_iama_cats)) {
+				echo "<div id='results{$k}_url' style='visibility:hidden'>".$good_arr[$k]."</div>";
          	unset($good_arr[$k]);
 				continue;
 			}           	
@@ -149,25 +148,18 @@
 
 					foreach($_REQUEST as $k => $v) {
 						if(preg_match($pattern, $k)) {
-							echo "searchstring += '&".$k.'='.$v."';\n";
+							echo "searchstring += '&".$k.'='.$v."';\n\t\t\t\t\t";
 						}
 					}
 
             echo "	
 					window.location = searchstring;
-				});"; 
+				});\n\n"; 
 
 
 		//fill the sections
 		foreach($good_arr as $k => $v) {
-
-
-
-			echo "$('#results$k').load('$v', function() {
-				
-			});\n\t\t";
-
-
+			echo "\t\t\t\t$('#results$k').load('$v');\n";
 		}           
 		?>
 

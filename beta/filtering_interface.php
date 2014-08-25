@@ -1,5 +1,7 @@
 <?php
-
+checkAdultStatus();
+global $view;
+                  
 
 include_once('admin/functions.php');
 

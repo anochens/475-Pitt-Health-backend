@@ -5,6 +5,7 @@
 #main_wrapper_results { background-color: white; }
 
 .generic_header { background-color: rgb(0,170,200); }
+.filtering_wrapper { border: solid 1px rgb(0,170,200); }
 
 
 /* CSS related to our goal */

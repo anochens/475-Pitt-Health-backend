@@ -4,6 +4,9 @@
 #main_wrapper { background-color: white; }
 #main_wrapper_results { background-color: white; }
 
+.generic_header { background-color: rgb(0,170,200); }
+
+
 /* CSS related to our goal */
 #our_goal { color: rgb(48,168,205); }
 

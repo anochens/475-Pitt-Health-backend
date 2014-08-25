@@ -56,8 +56,20 @@ body { margin: 0px; font-family: 'Maven Pro', sans-serif; z-index:1 }
 
 /* CSS related to the recommended search section */
 #recommended_section { background-color: white; border-radius: 10px; border: 1; width:100% ;width: 985px; padding: 10px; margin-bottom:20px }
-.generic_header { background-color: rgb(0,99,233); text-align: center; font-size: 30px; margin-bottom: 5px; color: white; margin-top: -11px; margin-left: -11px; margin-right: -11px; border-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; width:100%;position:relative; padding:10px; width:100% }
-#recommended_header { background-color: rgb(0,99,233); text-align: center; font-size: 30px; margin-bottom: 5px; color: white; border-radius: 10px; margin-top: -11px; margin-left: -11px; margin-right: -11px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; }
+.generic_header { background-color: rgb(0,99,233); text-align: center; font-size: 30px; margin-bottom: 5px; color: white; margin-top: -11px; border-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; padding:10px; padding-right:0px; }
+#recommended_header { 
+	background-color: rgb(0,99,233); 
+	text-align: center;
+	font-size: 30px; 
+	margin-bottom: 5px; 
+	color: white; 
+	border-radius: 10px; 
+	margin-top: -11px; 
+	margin-left: -11px; 
+	margin-right: -11px; 
+	border-bottom-right-radius: 0px; 
+	border-bottom-left-radius: 0px; 
+}
 #empty_space { width:10px; }
 
 /* CSS related to the search results */

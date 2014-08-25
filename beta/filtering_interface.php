@@ -81,10 +81,10 @@ function toggleAdvanced() {
 <br/>
 
 <div class='filtering_wrapper' class='generic_background_section'>
+	<div class='generic_header'>Who are you?</div>
 	<table>
 	<form id='filter_form1'>
 	<input id='advanced_search_indicator' name='advanced_search_indicator' value='0' type='hidden'>
-	<tr><th colspan=2 class='generic_header'>Who are you?</th></tr>
 	 
 	<?php
 
@@ -150,9 +150,9 @@ function moveSlider(forward, cat_id) {
 </script>
 
 <div class='filtering_wrapper' class='generic_background_section'>
+	<div class='generic_header'>Personalize your search</div>
 	<table>
 	<form id='filter_form2'>
-	<tr><th colspan=2 class='generic_header'>Personalize your search</th></tr>
 	 
 	<?php
 

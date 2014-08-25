@@ -29,35 +29,8 @@
 
 	print_searchbar();
 
-?>
-
-		<div class='generic_bar'>
-		<ul>
-			<li><a href='#'>Video</a></li> 
-			<li><a href='#'>Images</a></li> 
-			<li><a href='#'>Research</a></li> 
-			<li><a href='#'>Forums</a></li> 
-			<li><a href='#'>Blog</a></li> 
-			<li><a href='#'>Positions</a></li> 
-		</ul>
-		</div>                
 
 
-<?php
-
-
-		//echo "<div id='result_info'>About {$totalResults} ({$searchTime} seconds)</div>";
-
-?>
-
-<br/><br/>
-		<div class='generic_bar'>
-			<a href='#'>Simple</a> <span>|</span>
-			<a href='#'>Wizard</a>
-		</div> 
- 
-
-<?php
 
 
 	if(array_key_exists('advanced_search_indicator', $_REQUEST) &&
@@ -120,13 +93,15 @@
 		}
 		$query = urlencode($_GET['q']);
 
+		echo "<div id='results_leftside'>";
+
       //now create a section for each good one
 		foreach($good_arr as $k => $v) {
 			$sites = implode(',',$v);
 
 			$good_arr[$k] = "result_section.php?q=$query&section_num=$k&num=3&sites=$sites";
 			if(!in_array($k, $not_iama_cats)) {
-				echo "<div id='results{$k}_url' style='visibility:hidden'>".$good_arr[$k]."</div>";
+				echo "<span id='results{$k}_url' style='visibility:hidden'>".$good_arr[$k]."</span>";
          	unset($good_arr[$k]);
 				continue;
 			}           	
@@ -134,6 +109,8 @@
 		}
 
 		?>
+
+		</div> <!-- left side -->
 	<script>
 		$(document).ready(function() {
       
@@ -167,6 +144,27 @@
 
 		});
 	</script>
+
+	<div id='results_rightside'>
+	content
+
+
+	</div>
+
+
+	<style>
+	#results_leftside {
+		float:left;
+		width:700px;
+
+	} 
+ 	#results_rightside {
+		float:right;
+		border:solid;
+
+	} 
+
+	</style>
 
 		<?php
 

@@ -146,13 +146,30 @@
 	</script>
 
 	<div id='results_rightside'>
-	content
+		<div class='generic_header'>Need health insurance?</div>
+
+		<div class='rightside_box' id='insurance_box'>
+			<div class='sub_header'>Quotes by phone*</div>
+
+			<table>
+				<tr><td style='width:10%'>Name </td><td><input style='width:48%' name='insurance_first' value='First name'> <input style='width:48%' name='insurance_last' value='Last name'></td></tr>
+			</table><table>
+				<tr><td style='width:25%'>Country Code</td><td><input size=5 name='insurance_country'></td></tr>
+				<tr><td>Phone</td><td><input style='width:100%' name='insurance_phone' value='Phone'></td></tr>
+				<tr><td>Language</td><td><input style='width:100%' name='insurance_language' value='Select Language'></td></tr>
+				<tr><td>Call when</td><td><input size=5 name='insurance_call_when' value='Now'></td></tr>
+			</table>
+		</div>
 
 
 	</div>
 
 
 	<style>
+	#results_rightside .generic_header {
+		margin-bottom: 0px;
+
+	}
 	#results_leftside {
 		float:left;
 		width:700px;
@@ -161,8 +178,34 @@
  	#results_rightside {
 		float:right;
 		border:solid;
+		height: 1000px;
+		width:350px;
 
+		position:relative;
+		left: -50px;
+
+		display:inline;
 	} 
+
+	#insurance_box {
+   	color:white;
+		background-color:green;
+	}
+
+	.sub_header {
+   	font-size: 26px;
+		margin-top: 5px;
+		margin-bottom: 10px;
+	}
+	
+	.rightside_box td {
+   	color:white;
+		padding-bottom:10px;
+	}
+
+	.rightside_box {
+		padding: 10px;
+	}
 
 	</style>
 

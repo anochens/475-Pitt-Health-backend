@@ -6,10 +6,11 @@
 
 .generic_header { background-color: rgb(0,170,200); }
 .filtering_wrapper { border: solid 1px rgb(0,170,200); }
+#cartoon_doctor_img { position: relative; z-index:2;left:810px; top:-195px}
 
 
 /* CSS related to our goal */
-#our_goal { color: rgb(48,168,205); }
+#our_goal { color: rgb(48,168,205); font-size: 40px; width: 1200px;  }
 
 /* CSS related to the navbar */
 #navbar { background-color: rgb(58,172,147); }

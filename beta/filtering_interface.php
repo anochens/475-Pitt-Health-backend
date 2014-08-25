@@ -75,10 +75,15 @@ function toggleAdvanced() {
 </script>
 
 <div id='toggler'>
+	<?php if(!isset($sidebar) && !$sidebar) { ?>
 	<a onclick='toggleAdvanced();' id='toggler_link'>Advanced search</a>
+	<?php } ?>
 </div>
 
 <br/>
+
+<?php if(!isset($sidebar) && !$sidebar) { ?>
+
 
 <div class='filtering_wrapper' class='generic_background_section'>
 	<div class='generic_header'>Who are you?</div>
@@ -100,6 +105,8 @@ function toggleAdvanced() {
 	</form>
 	</table>
 </div>
+
+<?php } ?>
 
 <br>
 
@@ -149,48 +156,14 @@ function moveSlider(forward, cat_id) {
 
 </script>
 
-<div class='filtering_wrapper' class='generic_background_section'>
-	<div class='generic_header'>Personalize your search</div>
-	<table>
-	<form id='filter_form2'>
-	 
-	<?php
+<?php
 
-	$imgsrc = 'height:20px; width:20px';
-
-	foreach($res as $cat) {
-		if($cat['is_iama'] == '1') continue;
-		$sliderminus = '<img onclick="moveSlider(-1,'.$cat['id'].')" style="'.$imgsrc.'" src="img/sliderminus.png" />';
-		$sliderplus = '<img onclick="moveSlider(1,'.$cat['id'].')" style="'.$imgsrc.'" src="img/sliderplus.png" />';
-                         
-		echo "<tr><td class='left'>".$cat['name']."</td>";;
+include('sliders.php');
 
 
-		echo "<td class='sliderhead'> 
-		<table><tr>
-			<td>$sliderminus</td>
-			<td><div class='slider' id='personalize_".$cat['id']."' name='personalize_".$cat['id']."' ></div></td>
-			<td>$sliderplus</td>
-		</table></tr>";
-		//echo "<td><input type='text' value='100' name='personalize_".$cat['id']."i' /></td></tr>";
-		
-	}
+if(isset($sidebar) && $sidebar) { 
+	echo "<style>.filtering_wrapper { display:block;width:100% }</style>";
+}
+?>
+ 
 
-	?>
-
-
-
-
-	<tr>
-
-		<td colspan='2' style='text-align:right;padding-top:10px'>
-			Videos <input value='1' type='checkbox' name='want_videos' />
-			Images <input value='1' type='checkbox' name='want_images' />
-		</td>
-
-	</form>
-
-	</table>   
-
-
-</div>

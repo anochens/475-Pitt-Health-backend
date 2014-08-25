@@ -23,7 +23,7 @@
 
 	echo "<div id='main_wrapper_results'>";
 
-	echo "<div id='content_wrapper'>";
+	echo "<div style='width:1200px' id='content_wrapper'>";
 
 	print_our_goal();
 
@@ -192,6 +192,24 @@
 				<tr><td style='width:25%'>Zip</td><td><input size=5 name='insurance_zip' placeholder='Zip'></td></tr>
 			</table>
 		</div>                                      
+
+
+
+
+
+
+     
+<!--		<div class='generic_header'>Personalize your search</div>
+   -->
+
+	<?php
+	$sidebar = true;
+	include('filtering_interface.php');
+	?>
+
+
+
+
  
 
 	</div>
@@ -209,12 +227,12 @@
 	} 
  	#results_rightside {
 		float:right;
-		border:solid;
+	  i/* border:solid; */
 		height: 1000px;
-		width:350px;
+		width:450px;
 
 		position:relative;
-		left: -50px;
+		/*left: -50px; */
 
 		display:inline;
 	} 

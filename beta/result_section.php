@@ -44,80 +44,6 @@
 
 	echo "<div id='sub_content_wrapper'>";
 
-//	echo "<div id='result_info'>About {$totalResults} ({$searchTime} seconds)</div>";
-
-         /*
-
-		// Wrap the recommended sites in its own section
-		echo "<div id='recommended_section'>";
-
-			// Print out the recommended sites header
-			echo "<div id='recommended_header'>Our recommended sites</div>";
-
-//
-//			// Holds the recommended title
-//			$rec_result_title = $results['items'][0]['title'];
-//			// Holds the recommended link
-//			$rec_result_link = $results['items'][0]['link'];
-//			// Holds the recommneded formatted link
-//			$rec_formatted_link = $results['items'][0]['formattedUrl'];
-//			// Holds the recommended snippet
-//			$rec_result_snippet = $results['items'][0]['snippet'];
-//
-//			echo "<div id='result'>
-//						<a id='title_link' href='{$rec_result_link}'><span id='result_title'>{$rec_result_title}</span></a><br>
-//						<a id='result_link' href='{$rec_result_link}'>{$rec_formatted_link}</a><br>
-//						<span id='result_snip'>{$rec_result_snippet}</span>
-//					  </div>";
-//
-//			echo "<script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-//				<!-- search ad -->
-//				<ins class='adsbygoogle'
-////   			style='display:inline-block;width:728px;height:90px'
-////   			data-ad-client='ca-pub-3723102550752370'
-////   			data-ad-slot='7469889246'></ins>
-//				<script>
-//					(adsbygoogle = window.adsbygoogle || []).push({});
-//				</script>";
-//			echo "<script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-//					<!-- test ad -->
-//					<ins class='adsbygoogle'
-//					     style='display:inline-block;width:970px;height:90px'
-//					     data-ad-client='ca-pub-3723102550752370'
-//					     data-ad-slot='6194219644'></ins>
-//					<script>
-//					(adsbygoogle = window.adsbygoogle || []).push({});
-//					</script>";
-//			echo "<div id='empty_space'></div>";
-//			echo "<script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-//					<!-- test ad -->
-//					<ins class='adsbygoogle'
-//					     style='display:inline-block;width:970px;height:90px'
-//					     data-ad-client='ca-pub-3723102550752370'
-//					     data-ad-slot='6194219644'></ins>
-//					<script>
-//					(adsbygoogle = window.adsbygoogle || []).push({});
-//					</script>";
-//
-//			
-			echo "<div id='ads'>";
-			echo "<script type='text/javascript'><!--
-					google_ad_client = 'ca-pub-3723102550752370';
-					// test ad 
-
-					google_ad_slot = '6194219644';
-					google_ad_width = 970;
-					google_ad_height = 90;
-					//-->
-					</script>
-					<script type='text/javascript'
-					src='//pagead2.googlesyndication.com/pagead/show_ads.js'>
-					</script>";
-			echo "</div>";
-		// Close the recommended sites section
-		echo "</div>";
-
-*/
 
 		?>
       <script>
@@ -157,32 +83,25 @@
 
 		echo "<div class='general_search_section' id='general_search_section$section_num' class='general_search_section'>";
 
+			$divid = 'general_header';
 			// Print out title header
-			echo "<div id='general_header' onclick='togglePlusMinus($section_num);' >$section_name
-			 <img class='plusminus' id='plusminus$section_num'  src='img/minus.png' />
+			if($section_name == 'Topic Overview') {
+				$divid='generic_header';
+				$section_name = 'Overview to Topic';
+			}
+			echo "<div class='$divid' onclick='togglePlusMinus($section_num);'>$section_name";
+
+			if($section_name != 'Overview to Topic') {
+				echo "<img class='plusminus' id='plusminus$section_num'  src='img/minus.png' />";
+			}
+
+			echo "
 			
 			</div>
 
 			<script>
 			$(document).ready(function() {
 				reloadFor($section_num);
-				$('#searchbar').submit(function() {
-
-					searchstring = 'results.php?submit=submit&advanced_search_indicator=1&q='+$('#search_text_box').val() ;
-
-					alert(searchstring);
-					";
-					$pattern = '/^(IAmA|personalize)_(\d+)$/';
-
-					foreach($_REQUEST as $k => $v) {
-						//if(preg_match($pattern, $k)) {
-							echo "searchstring += '&".$k.'='.$v."';\n";
-						//}
-					}
-
-            echo "	
-					return false;
-				});
 			});
 			</script>
 

@@ -1,15 +1,7 @@
 <?php
 
-	include_once("executesearch.php");
 	include_once('admin/functions.php');
 	include_once('result_functions.php');
-
-	if(isset($adult) && $adult) {
-		include_once("adult/html_boilerplate.php");
-	}	
-	else {
-		include_once("html_boilerplate.php");
-	}
 
 	$query = urlencode($_GET['q']);
 	if(!isset($_GET['start'])) {
@@ -174,6 +166,23 @@
 			<script>
 			$(document).ready(function() {
 				reloadFor($section_num);
+				$('#searchbar').submit(function() {
+
+					searchstring = 'results.php?submit=submit&advanced_search_indicator=1&q='+$('#search_text_box').val() ;
+
+					alert(searchstring);
+					";
+					$pattern = '/^(IAmA|personalize)_(\d+)$/';
+
+					foreach($_REQUEST as $k => $v) {
+						//if(preg_match($pattern, $k)) {
+							echo "searchstring += '&".$k.'='.$v."';\n";
+						//}
+					}
+
+            echo "	
+					return false;
+				});
 			});
 			</script>
 

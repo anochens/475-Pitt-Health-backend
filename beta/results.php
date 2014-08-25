@@ -139,6 +139,24 @@
 		$(document).ready(function() {
       
 		<?php
+		echo "
+				$('#searchbar').submit(function() {
+
+					searchstring = 'results.php?submit=submit&advanced_search_indicator=1&q='+$('#search_text_box').val() ;
+
+					";
+					$pattern = '/^(IAmA|personalize)_(\d+)$/';
+
+					foreach($_REQUEST as $k => $v) {
+						if(preg_match($pattern, $k)) {
+							echo "searchstring += '&".$k.'='.$v."';\n";
+						}
+					}
+
+            echo "	
+					window.location = searchstring;
+				});"; 
+
 
 		//fill the sections
 		foreach($good_arr as $k => $v) {

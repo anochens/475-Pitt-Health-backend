@@ -75,14 +75,14 @@ function toggleAdvanced() {
 </script>
 
 <div id='toggler'>
-	<?php if(!isset($sidebar) && !$sidebar) { ?>
+	<?php if(!isset($sidebar) || !$sidebar) { ?>
 	<a onclick='toggleAdvanced();' id='toggler_link'>Advanced search</a>
 	<?php } ?>
 </div>
 
 <br/>
 
-<?php if(!isset($sidebar) && !$sidebar) { ?>
+<?php if(!isset($sidebar) || !$sidebar) { ?>
 
 
 <div class='filtering_wrapper' class='generic_background_section'>

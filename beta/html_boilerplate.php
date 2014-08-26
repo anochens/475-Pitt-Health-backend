@@ -106,15 +106,9 @@
 
 	function print_doctor() {
 		global $view;
-		$cartoon = ($view == 'cartoony') ? 'cartoonD' : 'd';
+		$cartoon = ($view == 'cartoony') ? 'cartoonDoctor' : 'doctor';
 
-		//echo "<div id= doctor_picture_div>";
-		echo "<img id=cartoon_doctor_img src= 'img/".$cartoon."octor.png' usemap='doctormap'>"; 
-
-		echo "<map name='doctormap'>";
-		echo "<area shape='rect' coords='0,0,150,150' href='#' onmouseover='$(\"#search_button\").mouseover();' onclick='$(\"#search_button\").click();'></map>";
-		//echo "</div>";
-
+		echo "<img id=cartoon_doctor_img src= 'img/".$cartoon.".png'"; 
 	}
 
 	function print_footer() {
@@ -138,10 +132,9 @@
  
 		if($view == 'cartoony') {
 
-			echo "<div id='our_goal'>Our goal is to help you find quality, up-to-date medical information and to help dispel common myths about various medical conditions.</div>";
+echo "<div style='margin-top:20px;margin-bottom:-50px;left:200px;position:relative' id='our_goal'><img src='img/cartoon_goal.png'></div>";
 		}
 		else {
-//			echo "<div id='our_goal'><span style='font-size:40px'>OUR GOAL:</span><br><span style='font-size:35px'>Easy, Quality, Up-to-date MEDICAL INFORMATION</span></div>";
 			echo "<div style='margin-top:-5px' id='our_goal'><img src='img/pro_goal.png'></div>";
 
 		}

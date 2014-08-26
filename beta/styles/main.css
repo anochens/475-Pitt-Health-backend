@@ -95,7 +95,7 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 
 /* CSS related to the main search basic page */
 //#doctor_picture_div { position: absolute; top: 162px; padding-left: 575px; width:800px; margin-left: auto; margin-right:auto;display:none }
-#cartoon_doctor_img { position: relative; z-index:2;left:575px; top:-175px}
+#cartoon_doctor_img { position: relative; z-index:2;left:575px; top:-295px}
 
 /* CSS related to filtering interface */
 .filtering_wrapper { background-color:white; display:inline-block; padding:5px, padding-bottom:10px;margin-bottom:20px; border-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; width:500px;display:none; font-family: "Arial Rounded MT", Arial, Helvetica, sans-serif; font-weight: bold;  }

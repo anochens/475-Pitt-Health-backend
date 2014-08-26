@@ -141,7 +141,8 @@
 			echo "<div id='our_goal'>Our goal is to help you find quality, up-to-date medical information and to help dispel common myths about various medical conditions.</div>";
 		}
 		else {
-			echo "<div id='our_goal'><span style='font-size:40px'>OUR GOAL:</span><br><span style='font-size:35px'>Easy, Quality, Up-to-date MEDICAL INFORMATION</span></div>";
+//			echo "<div id='our_goal'><span style='font-size:40px'>OUR GOAL:</span><br><span style='font-size:35px'>Easy, Quality, Up-to-date MEDICAL INFORMATION</span></div>";
+			echo "<div style='margin-top:-5px' id='our_goal'><img src='img/pro_goal.png'></div>";
 
 		}
 	}

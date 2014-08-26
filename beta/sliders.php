@@ -10,12 +10,12 @@
 	                                                         
 		echo "<table><form id='filter_form2'>";
  
-		$imgsrc = 'height:20px; width:20px';
+		$sliderstyle = 'color:rgb(153,153,153); height:20px; width:20px;cursor:pointer';
 
 		foreach($res as $cat) {
 			if($cat['is_iama'] == '1') continue;
-			$sliderminus = '<img onclick="moveSlider(-1,'.$cat['id'].')" style="'.$imgsrc.'" src="img/sliderminus.png" />';
-			$sliderplus = '<img onclick="moveSlider(1,'.$cat['id'].')" style="'.$imgsrc.'" src="img/sliderplus.png" />';
+			$sliderminus = '<span onclick="moveSlider(-1,'.$cat['id'].')" style="font-size:150%;'.$sliderstyle.'" >-</span>';
+			$sliderplus = '<span onclick="moveSlider(1,'.$cat['id'].')" style="'.$sliderstyle.'" >+</span>';
 									 
 			echo "<tr><td class='left'><div>".$cat['name']."</div></td>";;
 

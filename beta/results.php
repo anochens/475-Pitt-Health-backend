@@ -239,7 +239,7 @@
 	} 
  	#results_rightside {
 		float:right;
-	  i/* border:solid; */
+	  /* border:solid; */
 		height: 1000px;
 		width:320px;
 

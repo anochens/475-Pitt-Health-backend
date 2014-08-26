@@ -36,7 +36,7 @@ body { margin: 0px; font-family: 'Maven Pro', sans-serif; z-index:1 }
 .general_search_section { width:700px; max-height:500px; position:relative }
 .general_search_section button { position: absolute; bottom:20px; right:20px; }
 
-.general_header { text-align: center; font-weight: bold; color: rgb(50,104,222); font-size: 30px; margin-bottom: 5px; }
+.general_header, #general_header { text-align: center; font-weight: bold; color: rgb(50,104,222); font-size: 30px; margin-bottom: 5px; }
 
 /* CSS related to the recommended search section */
 #recommended_section { background-color: white; border-radius: 10px; border: 1; width:100% ;width: 985px; padding: 10px; margin-bottom:20px }
@@ -74,6 +74,16 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 #search_bar_wrapper { position:relative; z-index:3;height:90px;width:500px }
 #search_text_box { padding-left: 10px; border: 15px solid rgb(218,204,149); border-radius: 10px; width: 460px; height:50px }
 #search_text_box:focus { outline: none; }
+
+#results_rightside form { margin-bottom:0px;}
+#results_rightside #search_bar_wrapper #search_text_box { padding-left: 10px; border: 15px solid rgb(218,204,149); border-radius: 10px; width: 260px; height:50px } 
+
+#search_bar_wrapper2 { border: 15px solid rgb(218,204,149); border-radius: 10px; width: 320px; /*height:25px;*/ margin-bottom:20px; }
+#search_text_box2 {padding-left:10px; width:90%;height:30px;float:left;border:none }
+#search_button2 { padding: 5px; border: 0 none; cursor: pointer; background: rgb(171,5,26); color: white; height:20px; float:right;position:absolute }
+
+
+
 *:focus { outline: none; }
 #search_button { padding: 5px 23px; border: 0 none; cursor: pointer; background: rgb(171,5,26); color: white; border-radius: 10px; font-size: 20px; float:right; margin-top:15px; margin-bottom:35px;   }
 #search_button:hover { background-color: #ff322f; }

@@ -25,10 +25,9 @@
 
 	echo "<div style='width:1200px' id='content_wrapper'>";
 
-	print_our_goal();
+	//print_our_goal();
 
-	print_searchbar();
-
+	//print_searchbar();
 
 
 
@@ -118,7 +117,8 @@
 		echo "
 				$('#searchbar').submit(function() {
 
-					searchstring = 'results.php?submit=submit&advanced_search_indicator=1&q='+$('#search_text_box').val() ;
+					searchstring = 'results.php?submit=submit&advanced_search_indicator=1&q='+$('#search_text_box2').val() ;
+
 
 					";
 					$pattern = '/^(IAmA|personalize)_(\d+)$/';
@@ -131,6 +131,7 @@
 
             echo "	
 					window.location = searchstring;
+					return false;
 				});\n\n"; 
 
 
@@ -146,6 +147,17 @@
 	</script>
 
 	<div id='results_rightside'>
+
+  		<div id='search_bar_wrapper2'>
+			<form id='searchbar' style='height:30px' action='results.php' method='get' name='searchbar'>
+
+			<input id='search_text_box2' type='text' name='q' placeholder='Diabetes, Asthma, Heart ... More'>
+			<img id='search_button2' onclick='$("form").submit();' name='search' src='img/magglass.png'>   
+
+			</form>
+		</div>
+
+
 		<div class='generic_header'>Need health insurance?</div>
 
 

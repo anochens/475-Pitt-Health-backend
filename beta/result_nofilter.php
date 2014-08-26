@@ -1,3 +1,4 @@
+
 <?php
 
 
@@ -62,7 +63,7 @@
 	echo "<div id='content_wrapper'>";
 		print_our_goal();
 
-		print_searchbar();
+		print_searchbar(true);
 
 ?>
 
@@ -234,3 +235,8 @@
 	// Print the page footer
 	print_footer();
 ?>
+
+<style>
+#search_bar_wrapper { width:600px; }
+
+</style>            

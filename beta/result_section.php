@@ -73,7 +73,7 @@
 			}
 			$('#result_wrapper'+section_num).html(results);
 		}
-//			echo "$('#results$section_num .result_wrapper').html('<h1><center>Loading</center></h1>');";
+//			echo "$('#results$section_num .result_wrapper').html('<h1><center>Loading</cener></h1>');";
 
 		</script>  	                    
 
@@ -109,41 +109,9 @@
 			<div class='result_wrapper' id='result_wrapper".$section_num."'>
 			</div>
 
-			<button style='float:right' onclick='reloadFor($section_num)'>More</button>";
+			<button class='more_results_btn' onclick='reloadFor($section_num)'>more >></button>";
 			
 
-//			echo "<div id='forward_back'>";
-//			echo "<span>";
-//			
-//			if($pagePrev > 0) {
-//				echo "<a id='prev_page' href='results.php?q={$query}&start={$pagePrev}'>Previous</a>";
-//			}
-//			else {
-//				echo "Previous";
-//			}
-//			
-//			echo "&nbsp;</span>";
-//
-//			for($i=1;$i<=10;$i++) {
-//				$startLocal = (($i-1)*10)+1;
-//
-//				if($i == 0) $i='Previous';
-//				if($start == $startLocal) {
-//            	echo $i;
-//				}          
-//				else {
-//					echo "<span><a id='page' href='results.php?q={$query}&start=$startLocal'>$i</a></span>";
-//				}
-//			}
-//
-//			echo "<span>";
-//			if($pageNext < 100) { //no more results
-//				echo "<a id='next_page' href='results.php?q={$query}&start={$pageNext}'>Next</a>";
-//			}
-//			else {
-//         	echo '&nbsp;Next';
-//			}
-//			echo "</span></div></div>";
 
 
 		//close content wrapper

@@ -90,6 +90,7 @@
 			<form id='searchbar' action='results.php' method='get' name='searchbar'>
 
 			<input id='search_text_box' type='text' name='q' placeholder='Diabetes, Asthma, Heart ... More' required>
+			<br>
 			<input id='search_button' type='submit' name='search' value='FIND'>
 		<?php
 

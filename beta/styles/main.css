@@ -71,11 +71,11 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 #page:active { color: black; margin: 2px; }
 
 /* CSS related to search bar form */
-#search_bar_wrapper { position:relative; z-index:3;max-height:100px }
-#search_text_box { padding: 10px; border: 15px solid rgb(218,204,149); border-radius: 10px; width: 500px; }
+#search_bar_wrapper { position:relative; z-index:3;max-height:90px;width:500px }
+#search_text_box { padding-left: 10px; border: 15px solid rgb(218,204,149); border-radius: 10px; width: 460px; height:50px }
 #search_text_box:focus { outline: none; }
 *:focus { outline: none; }
-#search_button { padding: 5px 23px; border: 0 none; cursor: pointer; background: rgb(171,5,26); color: white; border-radius: 10px; font-size: 20px; /*position: absolute; top: 15px; left: 560px;*/   }
+#search_button { padding: 5px 23px; border: 0 none; cursor: pointer; background: rgb(171,5,26); color: white; border-radius: 10px; font-size: 20px; float:right; margin-top:15px; margin-bottom:35px;   }
 #search_button:hover { background-color: #ff322f; }
 #searchbar {max-height:70px;}
 
@@ -84,10 +84,10 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 #cartoon_doctor_img { position: relative; z-index:2;left:575px; top:-175px}
 
 /* CSS related to filtering interface */
-.filtering_wrapper { background-color:white; display:inline-block; padding:5px, padding-bottom:10px;margin-bottom:20px; border-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; width:550px;display:none; font-family: "Arial Rounded MT", Arial, Helvetica, sans-serif; font-weight: bold;  }
+.filtering_wrapper { background-color:white; display:inline-block; padding:5px, padding-bottom:10px;margin-bottom:20px; border-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; width:500px;display:none; font-family: "Arial Rounded MT", Arial, Helvetica, sans-serif; font-weight: bold;  }
 .filtering_wrapper td {color: rgb(52,107,229); font-size:150%;width:100%;padding-left:10px;padding-bottom:7px; padding-top:7px;  }
 
-#toggler { padding:5px; position:relative; right:0px; }
+#toggler { padding:5px; padding-top: 20px; position:relative; right:0px; }
 #toggler_link { position:relative; left:10px;cursor: pointer; text-align:right}
 .left {width:500px; }                                 
 

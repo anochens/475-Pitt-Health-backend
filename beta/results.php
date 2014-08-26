@@ -241,13 +241,14 @@
 		float:right;
 	  i/* border:solid; */
 		height: 1000px;
-		width:450px;
+		width:320px;
 
 		position:relative;
-		/*left: -50px; */
+		left: -125px; 
 
 		display:inline;
 	} 
+	#results_leftside { padding-top:32px}
 
 	#insurance_box {
    	color:white;
@@ -265,7 +266,7 @@
 	}
 
 	.sub_header {
-   	font-size: 26px;
+   	font-size: 24px;
 		margin-top: 5px;
 		margin-bottom: 10px;
 	}
@@ -277,6 +278,7 @@
 
 	.rightside_box {
 		padding: 10px;
+font-family: "Arial Rounded MT", Arial, Helvetica, sans-serif; font-weight: bold; 
 	}
 
 	</style>

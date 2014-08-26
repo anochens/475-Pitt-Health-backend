@@ -17,7 +17,7 @@
 			$sliderminus = '<img onclick="moveSlider(-1,'.$cat['id'].')" style="'.$imgsrc.'" src="img/sliderminus.png" />';
 			$sliderplus = '<img onclick="moveSlider(1,'.$cat['id'].')" style="'.$imgsrc.'" src="img/sliderplus.png" />';
 									 
-			echo "<tr><td class='left'><div style='width:100px'>".$cat['name']."</div></td>";;
+			echo "<tr><td class='left'><div>".$cat['name']."</div></td>";;
 
 
 			echo "<td class='sliderhead'> 
@@ -47,7 +47,7 @@
 			}
 			$count++;
 									 
-			echo "<tr><td class='left'><div style='width:100px'>".$cat['name']."</div></td>";;
+			echo "<tr><td class='left'><div>".$cat['name']."</div></td>";;
 
 
 			echo "<td class='checkhead'> 

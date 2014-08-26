@@ -32,7 +32,7 @@ body { margin: 0px; font-family: 'Maven Pro', sans-serif; z-index:1 }
 /* CSS related to the general search section */
 .generic_background_section { background-color: white; border-radius: 10px; border: 1px solid white; padding: 10px; }
 .general_search_section, #general_search_section { background-color: white; border-radius: 10px; border: 1px solid white; width: 985px;  font-family: "Arial Rounded MT", Arial, Helvetica, sans-serif; }
-.result_wrapper {min-height:325px;max-height:450px;}
+.result_wrapper {min-height:325px;max-height:480px;padding-bottom:50px;}
 .general_search_section { width:700px; max-height:500px; position:relative }
 .general_search_section button { position: absolute; bottom:20px; right:20px; }
 
@@ -40,7 +40,7 @@ body { margin: 0px; font-family: 'Maven Pro', sans-serif; z-index:1 }
 
 /* CSS related to the recommended search section */
 #recommended_section { background-color: white; border-radius: 10px; border: 1; width:100% ;width: 985px; padding: 10px; margin-bottom:20px }
-.generic_header { background-color: rgb(0,99,233); text-align: center; font-size: 30px; margin-bottom: 5px; color: white; border-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; line-height:50px; }
+.generic_header { background-color: rgb(0,99,233); text-align: center; font-size: 26px; margin-bottom: 5px; color: white; border-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; line-height:50px;font-family: "Arial Rounded MT", Arial, Helvetica, sans-serif; font-weight: bold;  }
 #recommended_header { 
 	background-color: rgb(0,99,233); 
 	text-align: center;

@@ -278,7 +278,8 @@
 
 	.rightside_box {
 		padding: 10px;
-font-family: "Arial Rounded MT", Arial, Helvetica, sans-serif; font-weight: bold; 
+		font-family: "Arial Rounded MT", Arial, Helvetica, sans-serif; 
+		font-weight: bold; 
 	}
 
 	</style>

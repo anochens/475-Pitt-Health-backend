@@ -164,7 +164,7 @@ include('sliders.php');
 
 
 if(isset($sidebar) && $sidebar) { 
-	echo "<style>.filtering_wrapper { display:block;width:100% }</style>";
+	echo "<style>.filtering_wrapper { display:block;/*width:100%*/ }</style>";
 }
 ?>
  

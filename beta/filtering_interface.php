@@ -165,7 +165,32 @@ include('sliders.php');
 
 if(isset($sidebar) && $sidebar) { 
 	echo "<style>.filtering_wrapper { display:block;/*width:100%*/ }</style>";
+
+	//fill sliders with values from $_GET
+		$pattern = '/^(personalize)_(\d+)$/';
+		echo "
+		<script>
+			$(document).ready(function() { ";
+      
+		foreach($_REQUEST as $k => $v) {
+			if(!preg_match($pattern, $k, $captures)) {
+				continue; //skip bad lines
+			}
+			$passedval = intval($captures[2]);
+
+			echo "
+					
+					$('#personalize_$passedval').slider('value', '$v');
+						";
+		}
+                    
+			echo "});
+			</script>";
+
 }
-?>
+
+
+
+
  
 

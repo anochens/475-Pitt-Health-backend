@@ -75,6 +75,7 @@
 
 		//now remove the ones that we do not want
 		$good_arr = array();
+		$all_arr = array();
 
 		foreach($_REQUEST as $k => $v) {
 
@@ -87,6 +88,7 @@
 			if(intval($v)>=50 || $v == '1') {
 				$good_arr[$id_of_cat] = $cats_to_sites[$id_of_cat];
 			}
+			$all_arr[$id_of_cat] = $cats_to_sites[$id_of_cat];
 
 			$captures = array();
 		}
@@ -95,14 +97,13 @@
 		echo "<div id='results_leftside'>";
 
       //now create a section for each good one
-		foreach($good_arr as $k => $v) {
+		foreach($all_arr as $k => $v) {
 			$sites = implode(',',$v);
 
 			$good_arr[$k] = "result_section.php?q=$query&section_num=$k&num=3&sites=$sites";
 			if(!in_array($k, $not_iama_cats)) {
 				echo "<span id='results{$k}_url' style='visibility:hidden'>".$good_arr[$k]."</span>";
          	unset($good_arr[$k]);
-				continue;
 			}           	
 			echo "<div id='results{$k}'></div>";
 		}
@@ -136,6 +137,10 @@
 
 
 		//fill the sections
+		/*echo "</script>";
+		var_dump($good_arr);
+		die; */
+
 		foreach($good_arr as $k => $v) {
 			echo "\t\t\t\t$('#results$k').load('$v');\n";
 		}           

@@ -128,7 +128,43 @@ function toggleAdvanced() {
 		animate:'fast',
       slider: function(event, ui) {
 		  if(ui.value < 30) ui.value=30;
-      }
+      },
+		change: function(event, ui) {
+			if(!ui || !ui.value) return;
+			console.log(ui);
+			console.log(ui.value);
+
+
+			elem = ui;
+
+			out = $(elem.handle).parent();
+			id = out.attr('id').replace('personalize_','');
+			result_section = $("#results"+id);
+			submain = $('#results'+id+' #sub_main_wrapper_results');
+
+			if(elem.value < 50) {
+				//hide section if shown
+				//alert(out.attr('id')+"="+elem.value+"-> hiding");
+
+				if(result_section) {
+            	result_section.hide();
+				}
+
+			}
+			else {
+				//if section not on page, load it
+				//and make sure hidden section is shown
+				if(submain) {
+            	result_section.show();
+				}
+				else {
+            	url = $('#results'+id+'_url').html();
+					result_section.load(url);	
+				}
+				//alert(out.attr('id')+"="+elem.value+"-> showing");
+			}
+
+		}
     });
     //$(this).val($(this).slider("value"));
   });
@@ -153,7 +189,7 @@ function moveSlider(forward, cat_id) {
 	if(newVal<50) newVal=50;
 	if(newVal>90) newVal=90;
 
-	target.slider('value', newVal);
+	target.slider('value', "'"+newVal+"'");
 }
 
 </script>
@@ -188,9 +224,4 @@ if(isset($sidebar) && $sidebar) {
 			</script>";
 
 }
-
-
-
-
- 
 

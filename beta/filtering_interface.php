@@ -131,8 +131,8 @@ function toggleAdvanced() {
       },
 		change: function(event, ui) {
 			if(!ui || !ui.value) return;
-			console.log(ui);
-			console.log(ui.value);
+			//console.log(ui);
+			//console.log(ui.value);
 
 
 			elem = ui;

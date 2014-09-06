@@ -1,6 +1,4 @@
-
 <?php
-
 	// Set error display to on, this will give a useful page error
 	// rather than just a 500 bad request error
 	ini_set('display_errors','On');

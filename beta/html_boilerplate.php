@@ -53,6 +53,7 @@
 
 	function print_header() {
 		global $view;
+		$newview = ($view == 'cartoony') ? 'clinical' : 'cartoony';
 
 		$switchstring = ($view == 'cartoony') ? 'clinical' : 'casual';
 		$switchstring .= ' view';
@@ -60,13 +61,14 @@
 		$href = '?view=';
 		$href .= ($view == 'cartoony') ? 'clinical' : 'cartoony';
 
+
 		?>
 
 			<div id='header'>
 			<!--<h1 id='mainheader'>MyHealthSites</h1>-->
 				<div id='headerimgdiv'><img id='headerimg' src='img/logo_<?= $imgstring ?>.jpg' alt='My Health Sites'></div>
 				<div>
-					<a id='view_switcher' href=<?= $href ?>><?= $switchstring ?></a>
+					<a id='view_switcher' href='#' onclick='document.cookie="view=<?= $newview ?>";location.reload();'><?= $switchstring ?></a>
 				</div>
 
 			</div>

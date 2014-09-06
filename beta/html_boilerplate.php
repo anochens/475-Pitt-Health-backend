@@ -28,24 +28,25 @@
 		checkAdultStatus();
 		global $view;
 
-		echo "
-			<head>
+      ?>
+		<!doctype html>
+				<head>
 
-			<link rel='stylesheet' type='text/css' href='styles/main.css'>
+					<link rel='stylesheet' type='text/css' href='styles/main.css'>
+					
+					<?php 
+					if($view == 'clinical') {
+						echo "<link rel='stylesheet' type='text/css' href='styles/adult.css'>";
+					}  ?>
 
-			<?php 
-			if($view == 'clinical') {
-				echo "<link rel='stylesheet' type='text/css' href='styles/adult.css'>";
-			}  ?>
-
-		<meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
-			<link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css'>
+					<meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
+					<link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css'>
 
 
 
-			<title>$page_title --- MyHealthSites</title>
+		   	<title><?= $page_title ?> --- MyHealthSites</title>
 
-			</head>  ";
+			</head>
        <?php
 	}
 

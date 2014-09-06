@@ -41,6 +41,7 @@
 
 					<meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
 					<link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css'>
+					<script src="//code.jquery.com/jquery-latest.min.js"></script>
 
 
 

@@ -12,14 +12,12 @@
 
 	if(array_key_exists('advanced_search_indicator', $_REQUEST) &&
 		$_REQUEST['advanced_search_indicator'] == '1') {
-   	processFiltering();
+		print_boilerplate($page_title);
 	}
 	else {
    	redir("result_nofilter.php", true);
 	} 
-	echo '<script src="//code.jquery.com/jquery-1.10.2.js"></script>';
 
-	print_boilerplate($page_title);
 
 	echo "<body>";
  
@@ -31,6 +29,7 @@
 	echo "<div id='main_wrapper_results'>";
 
 	echo "<div style='width:1200px' id='content_wrapper'>";
+	processFiltering();
 
 	//print_our_goal();
 

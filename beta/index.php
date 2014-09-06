@@ -2,7 +2,7 @@
 
 	ini_set('display_errors','On');
 
-	include("html_boilerplate.php");
+	include_once("html_boilerplate.php");
 
 	$page_title = "Home";
 
@@ -24,7 +24,7 @@
 	print_searchbar();
 
 
-	include('filtering_interface.php');
+	include_once('filtering_interface.php');
 
 
 	// close the main wrapper div

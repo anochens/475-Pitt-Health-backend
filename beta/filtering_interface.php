@@ -196,7 +196,7 @@ function moveSlider(forward, cat_id) {
 
 <?php
 
-include('sliders.php');
+include_once('sliders.php');
 
 
 if(isset($sidebar) && $sidebar) { 

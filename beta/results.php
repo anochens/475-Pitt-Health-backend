@@ -6,9 +6,9 @@
 	// rather than just a 500 bad request error
 	ini_set('display_errors','On');
 
-	include("executesearch.php");
-	include('admin/functions.php');
-	include('html_boilerplate.php');
+	include_once("executesearch.php");
+	include_once('admin/functions.php');
+	include_once('html_boilerplate.php');
 
 	$page_title = "Search Results";
 
@@ -221,7 +221,7 @@
 
 	<?php
 	$sidebar = true;
-	include('filtering_interface.php');
+	include_once('filtering_interface.php');
 	?>
 
 

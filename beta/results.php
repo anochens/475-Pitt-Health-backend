@@ -17,6 +17,7 @@
 	else {
    	redir("result_nofilter.php", true);
 	} 
+	echo '<script src="//code.jquery.com/jquery-1.10.2.js"></script>';
 
 	print_boilerplate($page_title);
 
@@ -38,7 +39,6 @@
 
 
 
-	echo '<script src="//code.jquery.com/jquery-1.10.2.js"></script>';
     
 
 

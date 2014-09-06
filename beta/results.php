@@ -9,6 +9,15 @@
 
 	$page_title = "Search Results";
 
+
+	if(array_key_exists('advanced_search_indicator', $_REQUEST) &&
+		$_REQUEST['advanced_search_indicator'] == '1') {
+   	processFiltering();
+	}
+	else {
+   	redir("result_nofilter.php", true);
+	} 
+
 	print_boilerplate($page_title);
 
 	echo "<body>";
@@ -29,13 +38,6 @@
 
 
 
-	if(array_key_exists('advanced_search_indicator', $_REQUEST) &&
-		$_REQUEST['advanced_search_indicator'] == '1') {
-   	processFiltering();
-	}
-	else {
-   	redir("result_nofilter.php", true);
-	}
 	echo '<script src="//code.jquery.com/jquery-1.10.2.js"></script>';
     
 

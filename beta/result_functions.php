@@ -2,6 +2,7 @@
 <?php
 
 include_once('admin/functions.php');
+include_once('result_functions.php');
 
 $url_q = urlencode($_GET['q']);
 $resultsOffset = '1';
@@ -50,7 +51,7 @@ if($sites) {
 
 $vars_to_define = array('resultsCache' => '[]','resultsCache_i' => '0',
 								'site_start_i' => '0', 'cache_exhausted_right' => 'false',
-								'sites' => "'$sites'",'q' => "'$url_q'",
+								'sites' => $sites,'q' => "'$url_q'",
 								'resultsOffset' => $resultsOffset);
 
 //var_dump($vars_to_define);
@@ -97,6 +98,8 @@ function getFormattedResults(num_results, section_num) {
 //doesnt need to be section dependent
 function formatResults(results) {
    all_results = [];
+
+	if(!results) return '';
 
 	for(i=0;i<results.length;i++) {
       result = results[i];
@@ -216,8 +219,9 @@ function getSiteString(section_num) {
 	if(!sites) return "";
 
 	subarr = sites[section_num].slice(site_start_i[section_num], site_start_i[section_num]+site_num_include);
+	console.log(subarr);
 
-	if(subarr.length == 0) return "";
+	if(!subarr || subarr.length == 0) return "";
 	
 	sitestring = subarr.join(' || ');
 	sitestring = ' sites('+sitestring+')';

@@ -154,6 +154,39 @@
 		});
 	</script>
 
+
+
+      <script>
+		function togglePlusMinus(section_num) {
+
+			me = $("#result_wrapper"+section_num);
+			me.toggle();
+
+			$("#general_search_section"+section_num+" button").toggle();
+
+			myimg = $("#general_search_section"+section_num+" img:eq(0)");
+
+			if(myimg.attr("src").indexOf("minus") > -1) {
+				myimg.attr("src", "img/plus.png");
+			}
+			else {
+				myimg.attr("src", "img/minus.png");
+			}
+		}
+		
+		function reloadFor(section_num) {
+			results = getFormattedResults(3, section_num);
+
+			if(!results) { 
+				results = '<span class="error">Sorry, there are no results to display</span>';
+
+			}
+			$('#result_wrapper'+section_num).html(results);
+		}
+//			echo "$('#results$section_num .result_wrapper').html('<h1><center>Loading</cener></h1>');";
+
+		</script> 
+
 	<div id='results_rightside'>
 
   		<div id='search_bar_wrapper2'>

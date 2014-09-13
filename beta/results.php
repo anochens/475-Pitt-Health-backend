@@ -81,10 +81,11 @@
 			if(!preg_match($pattern, $k, $captures)) {
 				continue; //skip bad lines
 			}
+			echo "$k => $v<br>\n";
 
 			$id_of_cat = intval($captures[2]);
 
-			if(intval($v)>=50 || $v == '1') {
+			if(intval($v)>=50 || $v == '1' || $v == 'on') {
 				$good_arr[$id_of_cat] = $cats_to_sites[$id_of_cat];
 			}
 			$all_arr[$id_of_cat] = $cats_to_sites[$id_of_cat];
@@ -92,18 +93,26 @@
 			$captures = array();
 		}
 		$query = urlencode($_GET['q']);
+		var_dump(array_keys($good_arr));
 
 		echo "<div id='results_leftside'>";
 
       //now create a section for each good one
 		foreach($all_arr as $k => $v) {
 			$sites = implode(',',$v);
-
-			$good_arr[$k] = "result_section.php?q=$query&section_num=$k&num=3&sites=$sites";
+          
 			if(!in_array($k, $not_iama_cats)) {
-				echo "<span id='results{$k}_url' style='visibility:hidden'>".$good_arr[$k]."</span>";
          	unset($good_arr[$k]);
-			}           	
+				continue;
+			}   
+			$str = "result_section.php?q=$query&section_num=$k&num=3&sites=$sites";
+			if(array_key_exists($k, $good_arr)) {
+				$good_arr[$k] = $str;
+			}        	
+			else {
+
+				echo "<div id='results{$k}_url' style='display:none'>$str</div>";
+			}
 			echo "<div id='results{$k}'></div>";
 		}
 
@@ -134,11 +143,6 @@
 					return false;
 				});\n\n"; 
 
-
-		//fill the sections
-		/*echo "</script>";
-		var_dump($good_arr);
-		die; */
 
 		foreach($good_arr as $k => $v) {
 			echo "\t\t\t\t$('#results$k').load('$v');\n";

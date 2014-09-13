@@ -27,7 +27,9 @@ if(array_key_exists('sites',$_GET)) {
     
 
 $section_name = runQuery('SELECT name FROM search_categories WHERE id='.$section_num);
-$section_name = $section_name[0]['name'];
+if(count($section_name) > 0) {
+	$section_name = $section_name[0]['name'];
+}
 
 if($sites) {
 	$sites = runQuery("SELECT url from searchable_sites WHERE id IN($sites)", $db, true, false);
@@ -48,7 +50,7 @@ if($sites) {
 
 $vars_to_define = array('resultsCache' => '[]','resultsCache_i' => '0',
 								'site_start_i' => '0', 'cache_exhausted_right' => 'false',
-								'sites' => $sites,'q' => "'$url_q'",
+								'sites' => "'$sites'",'q' => "'$url_q'",
 								'resultsOffset' => $resultsOffset);
 
 //var_dump($vars_to_define);

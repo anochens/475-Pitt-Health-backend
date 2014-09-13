@@ -37,7 +37,12 @@
 
    $title = 'Generic';
    $section_name = runQuery('SELECT name FROM search_categories WHERE id='.$section_num);
-	$section_name = $section_name[0]['name'];
+	if(count($section_name) > 0) {
+		$section_name = $section_name[0]['name'];
+	}
+	else {
+   	$section_name = print_r($section_name, true);
+	}
 
 
 	echo "<div id='sub_main_wrapper_results'>";

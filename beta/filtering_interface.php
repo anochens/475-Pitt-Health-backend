@@ -1,7 +1,6 @@
 <?php
 checkAdultStatus();
 global $view;
-                  
 
 include_once('admin/functions.php');
 
@@ -28,6 +27,7 @@ $(document).ready(function() {
 			extras += "&"+checkboxes[i].attr('name') +"="+ checkboxes[i].val();
 		}
 
+		<?php if($view == 'cartoony') {  ?>
 		sliders = $('.slider');
 
 		for(i=0;i<sliders.length;i++) {
@@ -35,6 +35,7 @@ $(document).ready(function() {
 			value = sliders[i].slider("value");
 			extras += "&"+sliders[i].attr('name') +"="+ value;
 		}        
+		<?php } ?>
 		
 
 		formvars = $('form').serialize(); //get data from all forms on the page at once
@@ -54,21 +55,21 @@ $(document).ready(function() {
 			$(this).val('0');
 		}
 		else {
-      	$(this).val('1');
+			$(this).val('1');
 		}
 	});
 
 });
 
 function toggleAdvanced() {
-   $('.filtering_wrapper').toggle(600);
+	$('.filtering_wrapper').toggle(600);
 
 	if($('#toggler_link').html() == 'Simple search') {
-   	$('#toggler_link').html('Advanced search');
+		$('#toggler_link').html('Advanced search');
 		$('#advanced_search_indicator').val(0);
 	}
 	else {
-   	$('#toggler_link').html('Simple search');
+		$('#toggler_link').html('Simple search');
 		$('#advanced_search_indicator').val(1);
 	}
 }
@@ -118,6 +119,9 @@ function toggleAdvanced() {
 
   <script>
   $(function() {
+	 <?php
+
+ //   if($view == 'cartoony') { ?>
     $(".slider").slider({
       value:60,
       min: 0,
@@ -125,19 +129,35 @@ function toggleAdvanced() {
       step: 10,
 		animate:'fast',
       slider: function(event, ui) {
-		  if(ui.value < 30) ui.value=30;
+		  //if(ui.value < 30) ui.value=30;
       },
-		change: function(event, ui) {
+		start: function(event, ui) {
 			if(!ui || !ui.value) return;
 			//console.log(ui);
 			//console.log(ui.value);
-
 
 			elem = ui;
 
 			out = $(elem.handle).parent();
 			id = out.attr('id').replace('personalize_','');
+			target = $('#personalize_'+id);
+			
+			                          /*
+			console.log('checking for <50');
+			if(target.val()<50 || target.slider('value') < 50) {
+				console.log('setting 50');
+				ui.value=50;
+				target.val(50);
+				target.slider('value',50);
+				ui.stop();
+				event.stopPropogation();
+			}                           */
+			
+			
+			
+			
 			result_section = $("#results"+id);
+
 			submain = $('#results'+id+' #sub_main_wrapper_results');
 
 			if(elem.value < 50) {
@@ -150,23 +170,44 @@ function toggleAdvanced() {
 
 			}
 			else {
+				<?php if(isset($sidebar)) { ?> 
 				//if section not on page, load it
 				//and make sure hidden section is shown
-				if(submain) {
+				console.log('wanting to show '+id);
+				if(submain.length > 0) {
+					console.log('just showing it');
             	result_section.show();
 				}
 				else {
-            	url = $('#results'+id+'_url').html();
-					result_section.load(url);	
+            	url = $('#results'+id+'_url').html()
+					if(url) {
+						url = (url+'').replace('&amp;','&');
+						url = (url+'').replace('&amp;','&');
+						console.log('trying to load from '+url);
+						result_section.load(url);	
+					}
+					else {
+               	console.log('no url to load from...');
+					}
 				}
-				//alert(out.attr('id')+"="+elem.value+"-> showing");
+				<?php } ?>
 			}
 
 		}
     });
-    //$(this).val($(this).slider("value"));
+
+    <?php
+
+	/* }
+	 else { //view is pro, so do pro things
+
+	 }*/
+	 ?>
+
   });
+
   </script>
+
 
 
 <style>
@@ -175,36 +216,38 @@ function toggleAdvanced() {
 .slider { width:150px;}
 .filtering_wrapper tr { padding-bottom:5px}
 .ui-widget-content .ui-state-default { background: rgb(171,5,26); }
-.sliderhead{ } 
-
 </style>
 
+<?php if($view == 'cartoony') { ?>
 <script>
-function moveSlider(forward, cat_id) {
-	target = $('#personalize_'+cat_id);
-   newVal = forward*40+target.slider("value");
+	function moveSlider(forward, cat_id) {
+		target = $('#personalize_'+cat_id);
+		newVal = forward*40+target.slider("value");
 
-	if(newVal<50) newVal=50;
-	if(newVal>90) newVal=90;
+		if(newVal<10) newVal=10;
+		if(newVal>100) newVal=100;
 
-	target.slider('value', "'"+newVal+"'");
-}
+		//target.slider('value', "'"+newVal+"'");
+		target.val(newVal);
+		target.slider('value', newVal);
+	}
 
 </script>
 
 <?php
 
-include_once('sliders.php');
+	include_once('sliders.php');
+} 
 
 
 if(isset($sidebar) && $sidebar) { 
-	echo "<style>.filtering_wrapper { display:block;/*width:100%*/ }</style>";
+	echo "<style>.filtering_wrapper { display:block;}</style>";
 
 	//fill sliders with values from $_GET
 		$pattern = '/^(personalize)_(\d+)$/';
 		echo "
 		<script>
-			$(document).ready(function() { ";
+			$(document).ready(function() {\n ";
       
 		foreach($_REQUEST as $k => $v) {
 			if(!preg_match($pattern, $k, $captures)) {
@@ -212,10 +255,15 @@ if(isset($sidebar) && $sidebar) {
 			}
 			$passedval = intval($captures[2]);
 
-			echo "
-					
-					$('#personalize_$passedval').slider('value', '$v');
-						";
+			if($view == 'cartoony') {
+				echo "$('#personalize_$passedval').slider('value', '$v');";
+			}
+			else {
+				if($v == 'on') {
+					echo "$('#personalize_$passedval').prop('checked', true);\n";
+				}
+			}
+
 		}
                     
 			echo "});

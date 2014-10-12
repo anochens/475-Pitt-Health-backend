@@ -160,7 +160,7 @@ function toggleAdvanced() {
 
 			submain = $('#results'+id+' #sub_main_wrapper_results');
 
-			if(elem.value < 50) {
+			if(elem.value < 50 || target.val() < 50) {
 				//hide section if shown
 				//alert(out.attr('id')+"="+elem.value+"-> hiding");
 
@@ -222,7 +222,7 @@ function toggleAdvanced() {
 <script>
 	function moveSlider(forward, cat_id) {
 		target = $('#personalize_'+cat_id);
-		newVal = forward*40+target.slider("value");
+		newVal = forward*40+target.val();
 
 		if(newVal<10) newVal=10;
 		if(newVal>100) newVal=100;

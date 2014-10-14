@@ -1,4 +1,5 @@
 <?php
+  header('Content-Type: application/xml; charset=utf-8');
 
 include_once('functions.php');
 
@@ -28,7 +29,10 @@ foreach($cats as $cat) {
 }
 $cats = $temp;
 
-$prelim = "<Facet>\n";
+$title = 'Do not care';
+
+$prelim = "<CustomSearchEngine>\n\t<Title>$title</Title><Context><Facet>\n";
+$post = "</Facet></Context></CustomSearchEngine>\n";
 
 
 $results = '';
@@ -56,8 +60,7 @@ foreach($cats as $cat) {
 	$result .= "\t</FacetItem>\n\n";
 	$results .= $result;	
 }
-$results .= "</Facet>\n";
        
-$results = $prelim . $results;
+$results = $prelim . $results . $post;
 
 echo $results;

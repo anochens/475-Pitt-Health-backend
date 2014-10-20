@@ -93,19 +93,31 @@
 			$captures = array();
 		}
 		$query = urlencode($_GET['q']);
-		var_dump(array_keys($good_arr));
+		//var_dump(array_keys($good_arr));
 
 		echo "<div id='results_leftside'>";
 
+
+		//unhardcode this later
+		$refinements = array('default', 'diagnosis_symptoms','treatment', 'recovery_post-operative','social', 'research', 'latest_news', 'diet');
+
       //now create a section for each good one
 		foreach($all_arr as $k => $v) {
-			$sites = implode(',',$v);
           
 			if(!in_array($k, $not_iama_cats)) {
          	unset($good_arr[$k]);
 				continue;
-			}   
-			$str = "result_section.php?q=$query&section_num=$k&num=3&sites=$sites";
+			}                                         
+
+			$refinement = $refinements[$k-6]; //WHY 6?
+
+			$sites = implode(',',$v);
+			$sites = ''; //temporary
+          
+			//$str = "result_section.php?q=$query&section_num=$k&num=3&sites=$sites";
+			//no longer a need to pass sites explicitly
+			$_GET['q']= $query;
+			$str = "result_section.php?q=$query+more:$refinement&section_num=$k&num=3&sites=$sites";
 			if(array_key_exists($k, $good_arr)) {
 				$good_arr[$k] = $str;
 			}        	
@@ -146,6 +158,9 @@
 
 		foreach($good_arr as $k => $v) {
 			echo "\t\t\t\t$('#results$k').load('$v');\n";
+
+		  // echo "\t\t\t\t$('#results$k').attr('src','$v');\n";
+			
 		}           
 		?>
 

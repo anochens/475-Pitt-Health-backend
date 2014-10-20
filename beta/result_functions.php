@@ -21,7 +21,7 @@ if(array_key_exists('sites',$_GET)) {
 	$sites = $_GET['sites'];
 
 	if(!preg_match($pattern, $sites)) {
-		print('Invalid site specifier');
+		//print('Invalid site specifier');
 		$sites='';
 	}
 }
@@ -72,6 +72,8 @@ foreach($vars_to_define as $var => $default) {
                 
 var key = "AIzaSyDBzCfhslTSWG6hVgaZ9eFgVqc1Ck5jxRE";
 var cx = "013942562424063258541:ofu8c_sygk4";
+
+cx = '006315996676710339076:dnicd9s89ta'; //new test1 engine
                       
 var cache_refill_size = 9;
      

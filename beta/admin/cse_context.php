@@ -36,7 +36,8 @@ $post = "</Facet></Context></CustomSearchEngine>\n";
 
 
 $results = '';
-
+	$results .= "\t<FacetItem title='default'>\n";
+	$results .= "\t\t<Label name='default' mode='FILTER' enable_for_facet_search='true' label_onebox_boost='0'>\n\t\t\t<Rewrite></Rewrite>\n\t\t</Label>\n</FacetItem>";
 
 
 function convert($string) {

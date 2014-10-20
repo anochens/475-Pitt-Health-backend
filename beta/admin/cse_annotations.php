@@ -35,6 +35,8 @@ foreach($sites as $site) {
 	$result = "\n<Annotation about='".$site['url']."'>\n";
 
 	$num_added = 0;
+	$result .= "\t<label name='default' />\n";
+
 	foreach($r_cats as $cat) {
 		if(!$cat || $cat == '') continue;
 

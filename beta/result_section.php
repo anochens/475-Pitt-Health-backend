@@ -1,3 +1,19 @@
+<?php 
+$q='';
+	if(array_key_exists('q',$_GET)) {
+   	$q = htmlentities($_GET['q']);
+	}
+
+?>
+<style>
+iframe {
+	height:100%;
+	width:100%;
+
+
+}
+
+</style>
 <script>
 
 		function reloadFor(section_num) {
@@ -7,7 +23,7 @@
 				results = '<span class="error">Sorry, there are no results to display</span>';
 
 			}
-			$('#result_wrapper'+section_num).html(results);
+			//$('#result_wrapper'+section_num).html(results);
 		}         
 
 </script>
@@ -42,7 +58,7 @@
 		$sites = $_GET['sites'];
 
 		if(!preg_match($pattern, $sites)) {
-			print('Invalid site specifier');
+			//print('Invalid site specifier');
 			$sites='';
 		}
 	}
@@ -96,6 +112,7 @@
 
 			
 			<div class='result_wrapper' id='result_wrapper".$section_num."'>
+				<iframe class='result_wrapper' style='padding-bottom:0px;' src='gresults.php?q=$q'>
 			</div>
 
 			<button class='more_results_btn' onclick='reloadFor($section_num)'>more >></button>";

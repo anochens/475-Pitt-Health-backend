@@ -110,18 +110,12 @@
 
 			$refinement = $refinements[$k-6]; //WHY 6?
 
-			$sites = implode(',',$v);
-			$sites = ''; //temporary
-          
-			//$str = "result_section.php?q=$query&section_num=$k&num=3&sites=$sites";
-			//no longer a need to pass sites explicitly
-			$_GET['q']= $query;
-			$str = "result_section.php?q=$query+more:$refinement&section_num=$k&num=3&sites=$sites";
+			$str = "result_section.php?q=$query+more:$refinement&section_num=$k";
+			echo "\n";
 			if(array_key_exists($k, $good_arr)) {
 				$good_arr[$k] = $str;
 			}        	
 			else {
-
 				echo "<div id='results{$k}_url' style='display:none'>$str</div>";
 			}
 			echo "<div id='results{$k}'></div>";
@@ -157,9 +151,6 @@
 
 		foreach($good_arr as $k => $v) {
 			echo "\t\t\t\t$('#results$k').load('$v');\n";
-
-		  // echo "\t\t\t\t$('#results$k').attr('src','$v');\n";
-			
 		}           
 		?>
 
@@ -197,7 +188,6 @@
 			}
 			$('#result_wrapper'+section_num).html(results);
 		}
-//			echo "$('#results$section_num .result_wrapper').html('<h1><center>Loading</cener></h1>');";
 
 		</script> 
 

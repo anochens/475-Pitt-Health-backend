@@ -21,21 +21,20 @@ iframe {
 <script>
 
 		function reloadFor(section_num) {
-			results = getFormattedResults(3, section_num);
+			/*results = getFormattedResults(3, section_num);
 
 			if(!results) { 
 				results = '<span class="error">Sorry, there are no results to display</span>';
 
 			}
 			//$('#result_wrapper'+section_num).html(results);
-		}         
+	 */  }         
 
 </script>
 
 <?php
 
 	include_once('admin/functions.php');
-	include_once('result_functions.php');
 
 	$query = urlencode($_GET['q']);
 	if(!isset($_GET['start'])) {

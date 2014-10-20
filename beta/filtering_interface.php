@@ -132,7 +132,7 @@ function toggleAdvanced() {
 		  //if(ui.value < 30) ui.value=30;
       },
 		start: function(event, ui) {
-			if(!ui || !ui.value) return;
+			if(!ui || !ui.value) { return; }
 			//console.log(ui);
 			//console.log(ui.value);
 
@@ -179,7 +179,7 @@ function toggleAdvanced() {
             	result_section.show();
 				}
 				else {
-            	url = $('#results'+id+'_url').html()
+            	url = $('#results'+id+'_url').html();
 					if(url) {
 						url = (url+'').replace('&amp;','&');
 						url = (url+'').replace('&amp;','&');
@@ -224,10 +224,9 @@ function toggleAdvanced() {
 		target = $('#personalize_'+cat_id);
 		newVal = forward*40+target.val();
 
-		if(newVal<10) newVal=10;
-		if(newVal>100) newVal=100;
+		if(newVal<10)  {newVal=10; }
+		if(newVal>100) {newVal=100; }
 
-		//target.slider('value', "'"+newVal+"'");
 		target.val(newVal);
 		target.slider('value', newVal);
 	}

@@ -21,18 +21,28 @@ $post = "</Annotations>\n";
 
 $results = '';
 
-function convert2($string) {
+function striptitle($string) {
 	$string = strtolower($string);
 	$string = str_replace(array(' ','/'), "_", $string);
 
 	return $string;
 }
 
+function generalizeURL($url) {
+	$url = str_replace("http://","", $url);
+	$url = str_replace("https://","", $url);
+	if(substr($url, -1) == '/') {
+   	$url .= "*";
+	} 
+	$url = str_replace("www.","*.", $url);
+	return $url;
+}
+
 foreach($sites as $site) {
 	$r_cats = explode(',', $site['categories']);
    if(count($r_cats) == 0) continue;
 
-	$result = "\n<Annotation about='".$site['url']."'>\n";
+	$result = "\n<Annotation about='".generalizeURL($site['url'])."'>\n";
 
 	$num_added = 0;
 	$result .= "\t<label name='default' />\n";
@@ -41,7 +51,7 @@ foreach($sites as $site) {
 		if(!$cat || $cat == '') continue;
 
 //		if($cats[$cat]['is_iama'] == 1) {
-			$result .= "\t<label name='".convert2($cats[$cat]['name'])."' />\n";
+			$result .= "\t<label name='".striptitle($cats[$cat]['name'])."' />\n";
 			$num_added++;
 //		}
 	}

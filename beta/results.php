@@ -81,7 +81,6 @@
 			if(!preg_match($pattern, $k, $captures)) {
 				continue; //skip bad lines
 			}
-			echo "$k => $v<br>\n";
 
 			$id_of_cat = intval($captures[2]);
 
@@ -99,7 +98,7 @@
 
 
 		//unhardcode this later
-		$refinements = array('default', 'diagnosis_symptoms','treatment', 'recovery_post-operative','social', 'research', 'latest_news', 'diet');
+		$refinements = array('topic_overview', 'diagnosis_symptoms','treatment', 'recovery_post-operative','social', 'research', 'latest_news', 'diet');
 
       //now create a section for each good one
 		foreach($all_arr as $k => $v) {

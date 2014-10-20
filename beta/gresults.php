@@ -61,7 +61,7 @@
 	border: 2px solid #ccc;   */
 }
 
-.gs-per-result-labels, .gsc-refinementsArea, .gsc-adBlock {
+.gs-per-result-labels, .gsc-refinementsArea, .gsc-adBlock, .gsc-above-wrapper-area {
 	display: none;
 }
 

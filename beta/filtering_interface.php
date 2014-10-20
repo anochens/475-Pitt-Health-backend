@@ -131,7 +131,7 @@ function toggleAdvanced() {
       slider: function(event, ui) {
 		  //if(ui.value < 30) ui.value=30;
       },
-		start: function(event, ui) {
+		stop: function(event, ui) {
 			if(!ui || !ui.value) { return; }
 			//console.log(ui);
 			//console.log(ui.value);
@@ -159,10 +159,12 @@ function toggleAdvanced() {
 			result_section = $("#results"+id);
 
 			submain = $('#results'+id+' #sub_main_wrapper_results');
+			val = elem.value;
+			if(!val) val = target.val();
 
-			if(elem.value < 50 || target.val() < 50) {
+			if(val < 50) {
 				//hide section if shown
-				//alert(out.attr('id')+"="+elem.value+"-> hiding");
+				alert(out.attr('id')+"="+elem.value+"-> hiding");
 
 				if(result_section) {
             	result_section.hide();

@@ -9,6 +9,10 @@ $q='';
 iframe {
 	height:100%;
 	width:100%;
+	overflow:hidden;
+	padding-bottom:0px;
+	margin-bottom:0px;
+	border:none;
 
 
 }
@@ -112,7 +116,7 @@ iframe {
 
 			
 			<div class='result_wrapper' id='result_wrapper".$section_num."'>
-				<iframe class='result_wrapper' style='padding-bottom:0px;' src='gresults.php?q=$q'>
+				<iframe class='result_wrapper' src='gresults.php?q=$q' scrolling='no'>
 			</div>
 
 			<button class='more_results_btn' onclick='reloadFor($section_num)'>more >></button>";

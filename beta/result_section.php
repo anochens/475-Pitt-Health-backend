@@ -1,3 +1,5 @@
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
+
 <?php 
 $q='';
 	if(array_key_exists('q',$_GET)) {
@@ -129,4 +131,13 @@ iframe {
 	// Close the main page wrapper
 	echo "</div>";
 
-die;
+?>
+<script>
+$(document).ready(function() {
+	cursor_val = $($('.gsc-cursor-current-page')[0]).html();
+	console.log(cursor_val);
+
+});
+
+</script>         
+

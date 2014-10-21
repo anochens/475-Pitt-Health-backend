@@ -4,9 +4,13 @@
 #main_wrapper { background-color: white; }
 #main_wrapper_results { background-color: white; }
 
-.generic_header { background-color: rgb(0,170,200); }
+.generic_header { background-color: rgb(92,198,175); }
+.general_header { background-color: rgb(47,170,204); }
 .filtering_wrapper { border: solid 1px rgb(0,170,200); }
 #cartoon_doctor_img { position: relative; z-index:2;left:810px; top:-195px}
+#sub_main_wrapper_results { background-color: #FFFFFF; }
+#search_bar_wrapper2 { border: 15px solid rgb(211,236,240); }
+#search_button2 { background: rgb(47, 170, 204); color: white; }
 
 
 /* CSS related to our goal */

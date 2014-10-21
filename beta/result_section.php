@@ -74,7 +74,7 @@ iframe {
 		$section_name = $section_name[0]['name'];
 	}
 	else {
-   	$section_name = print_r($section_name, true);
+   	$section_name = $section_num.': '.print_r($section_name, true);
 	}
 
 

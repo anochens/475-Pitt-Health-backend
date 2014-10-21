@@ -164,7 +164,7 @@ function toggleAdvanced() {
 
 			if(val < 50) {
 				//hide section if shown
-				alert(out.attr('id')+"="+elem.value+"-> hiding");
+				console.log(out.attr('id')+"="+elem.value+"-> hiding");
 
 				if(result_section) {
             	result_section.hide();
@@ -185,6 +185,7 @@ function toggleAdvanced() {
 					if(url) {
 						url = (url+'').replace('&amp;','&');
 						url = (url+'').replace('&amp;','&');
+						url = (url+'');
 						console.log('trying to load from '+url);
 						result_section.load(url);	
 					}

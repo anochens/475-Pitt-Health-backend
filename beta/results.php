@@ -110,7 +110,7 @@
 
 			$refinement = $refinements[$k-6]; //WHY 6?
 
-			$str = "result_section.php?q=$query+more:$refinement&section_num=$k";
+			$str = "result_section.php?section_num=$k&q=$query+more:$refinement";
 			echo "\n";
 			if(array_key_exists($k, $good_arr)) {
 				$good_arr[$k] = $str;

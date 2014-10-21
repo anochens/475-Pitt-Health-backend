@@ -122,63 +122,10 @@
 
 			// Print out 'General Medical Search' header
 			echo "<div id='general_header'>General Medical Search</div>";
-
-			if(isset($results) && array_key_exists('items', $results)) {
-
-				foreach ($results['items'] as $result) {
-					$result_title = $result['title'];
-					$result_link = $result['link'];
-					$formatted_link = $result['formattedUrl'];
-					$result_snippet = $result['snippet'];
-					// Print out each result title, link, and snippet
-					echo "<div id='result'>
-							<a id='title_link' href='{$result_link}'><span id='result_title'>{$result_title}</span></a><br>
-							<a id='result_link' href='{$result_link}'>{$formatted_link}</a><br>
-							<span id='result_snip'>{$result_snippet}</span>
-						  </div>";
-				}
-
-				echo "<div id='forward_back'>";
-				echo "<span>";
-				
-				if($pagePrev > 0) {
-					echo "<a id='prev_page' href='results.php?q={$query}&start={$pagePrev}'>Previous</a>";
-				}
-				else {
-					echo "Previous";
-				}
-				
-				echo "&nbsp;</span>";
-
-				for($i=1;$i<=10;$i++) {
-					$startLocal = (($i-1)*10)+1;
-
-					if($i == 0) $i='Previous';
-					if($start == $startLocal) {
-						echo $i;
-					}          
-					else {
-						echo "<span><a id='page' href='results.php?q={$query}&start=$startLocal'>$i</a></span>";
-					}
-				}
-
-				echo "<span>";
-				if($pageNext < 100) { //no more results
-					echo "<a id='next_page' href='results.php?q={$query}&start={$pageNext}'>Next</a>";
-				}
-				else {
-					echo '&nbsp;Next';
-				}
-				echo "</span></div>";
-		}
-		else { //no results
-			echo "<span class='error'>Sorry, there are no results to display.</span>";
-
-		}
+			echo "<span id='general_search_section_sub'></div>";
 
 		// Close the general medical search section
 		echo "</div>";
-
 		//close content wrapper
 		echo "</div>"; 
 
@@ -193,3 +140,14 @@
 #search_bar_wrapper { width:600px; }
 
 </style>            
+
+
+<script>
+
+$(document).ready(function() {
+		str = "gresults.php?q=<?= $query ?>+more:default&num=10";
+
+		$('#general_search_section_sub').load(str);
+});
+
+</script>

@@ -1,3 +1,12 @@
+<?php
+
+//alow for variable number of results
+$num = 3;
+if(array_key_exists('num', $_GET)) {
+	$num = intval($_GET['num']);
+}
+
+?>
 
 <script>
   (function() {
@@ -11,7 +20,7 @@
     s.parentNode.insertBefore(gcse, s);
   })();
 </script>
-<gcse:searchresults-only refinementStyle='link' webSearchResultSetSize='3'></gcse:searchresults-only>                          
+<gcse:searchresults-only refinementStyle='link' webSearchResultSetSize='<?= $num ?>'></gcse:searchresults-only>                          
 
 
 <style type='text/css'>
@@ -61,6 +70,7 @@
 	border: 2px solid #ccc;   */
 }
 
+/* hide things we don't want */
 .gs-per-result-labels, .gsc-refinementsArea, .gsc-adBlock, .gsc-above-wrapper-area {
 	display: none;
 }

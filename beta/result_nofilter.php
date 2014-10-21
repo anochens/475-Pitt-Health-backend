@@ -101,52 +101,6 @@
 			// Print out the recommended sites header
 			echo "<div id='recommended_header'>Our recommended sites</div>";
 
-			/*
-			// Holds the recommended title
-			$rec_result_title = $results['items'][0]['title'];
-			// Holds the recommended link
-			$rec_result_link = $results['items'][0]['link'];
-			// Holds the recommneded formatted link
-			$rec_formatted_link = $results['items'][0]['formattedUrl'];
-			// Holds the recommended snippet
-			$rec_result_snippet = $results['items'][0]['snippet'];
-
-			echo "<div id='result'>
-						<a id='title_link' href='{$rec_result_link}'><span id='result_title'>{$rec_result_title}</span></a><br>
-						<a id='result_link' href='{$rec_result_link}'>{$rec_formatted_link}</a><br>
-						<span id='result_snip'>{$rec_result_snippet}</span>
-					  </div>";
-
-			echo "<script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-				<!-- search ad -->
-				<ins class='adsbygoogle'
-//   			style='display:inline-block;width:728px;height:90px'
-//   			data-ad-client='ca-pub-3723102550752370'
-//   			data-ad-slot='7469889246'></ins>
-				<script>
-					(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>";
-			echo "<script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-					<!-- test ad -->
-					<ins class='adsbygoogle'
-					     style='display:inline-block;width:970px;height:90px'
-					     data-ad-client='ca-pub-3723102550752370'
-					     data-ad-slot='6194219644'></ins>
-					<script>
-					(adsbygoogle = window.adsbygoogle || []).push({});
-					</script>";
-			echo "<div id='empty_space'></div>";
-			echo "<script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-					<!-- test ad -->
-					<ins class='adsbygoogle'
-					     style='display:inline-block;width:970px;height:90px'
-					     data-ad-client='ca-pub-3723102550752370'
-					     data-ad-slot='6194219644'></ins>
-					<script>
-					(adsbygoogle = window.adsbygoogle || []).push({});
-					</script>";
-
-			*/  
 			echo "<div id='ads'>";
 			echo "<script type='text/javascript'><!--
 					google_ad_client = 'ca-pub-3723102550752370';

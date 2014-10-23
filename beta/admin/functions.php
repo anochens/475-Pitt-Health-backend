@@ -121,4 +121,52 @@ function redir($page, $includeQuery = false) {
 }   
 
 
+//cse annotations and context related functions
+                                              
+function generalizeURL($url) {
+	$url = str_replace("http://","", $url);
+	$url = str_replace("https://","", $url);
+	if(substr($url, -1) == '/') {
+   	$url .= "*";
+	} 
+	$url = str_replace("www.","*.", $url);
+	return $url;
+}
+
+
+//sorts an array of arrays, first by size, then by first elem
+function sortfunc($a, $b) {
+	$count_a = count($a);
+	$count_b = count($b);
+
+	if($count_a != $count_b) {
+   	return $count_a - $count_b;
+	}
+
+	if($count_a == 1) {
+   	return $a[0]-$b[0];
+	}
+	return 0;
+}
+
+//from http://docstore.mik.ua/orelly/webprog/pcook/ch04_25.htm
+//modified for better sorting order
+function pc_array_power_set($array) {
+	// initialize by adding the empty set
+	$results = array(array( ));
+
+	foreach ($array as $element) {
+		foreach ($results as $combination) {
+			$new_elem = array_merge(array($element), $combination);
+			sort($new_elem);
+			array_push($results, $new_elem );
+		}
+	}
+
+	usort($results, "sortfunc");
+
+	return $results;
+}
+ 
+
 

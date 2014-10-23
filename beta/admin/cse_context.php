@@ -32,45 +32,56 @@ foreach($cats as $cat) {
 }
 $cats = $temp;
 
-$title = 'Do not care';
+$title = 'My CSE';
 
 $prelim = "<CustomSearchEngine>\n\t<Title>$title</Title><Context><Facet>\n";
 $post = "</Facet></Context></CustomSearchEngine>\n";
 
 
 $results = '';
-	$results .= "\t<FacetItem title='default'>\n";
-	$results .= "\t\t<Label name='default' mode='FILTER' enable_for_facet_search='true' label_onebox_boost='0'>\n\t\t\t<Rewrite></Rewrite>\n\t\t</Label>\n</FacetItem>";
 
 
-function convert($string) {
-	$string = strtolower($string);
-	$string = str_replace(array(' ','/'), "_", $string);
+$results .= createFacetItem();
 
-	return $string;
-}                                                                 
+                                                              
 
 
 $iama_list = array();
 foreach($cats as $id=>$iama){
 	if($iama  && $iama['is_iama'] == 1) {
-		$iama_list[] = convert($iama['name']);
+		$iama_list[] = $iama['id'];
 	}
 }
 
 
+$iama_list = pc_array_power_set($iama_list);
+
 foreach($iama_list as $iama) {
+	if(!$iama) continue;
+
+	$iama = implode("_", $iama);
+    
 	foreach($cats as $cat) {
 		if($cat['is_iama'] == 1) continue;
-		$result = '';
-		$result .= "\t<FacetItem title='".$cat['name']."'>\n";
-		$result .= "\t\t<Label name='".$iama."__".convert($cat['name'])."' mode='FILTER' enable_for_facet_search='true' label_onebox_boost='0'>\n\t\t\t<Rewrite></Rewrite>\n\t\t</Label>\n";
 
-		$result .= "\t</FacetItem>\n\n";
-		$results .= $result;	
+		$name = "iama_".$iama."__filter_".$cat['id'];
+		$results .= createFacetItem($name, $name);
 	}
 }
        
 $results = $prelim . $results . $post;
 
 echo $results;
+
+
+function createFacetItem($name = "default") {
+	$result = "";
+	$result .= "\t<FacetItem title='$name'>\n";
+	$result .= "\t\t<Label name='$name' mode='FILTER' enable_for_facet_search='true' label_onebox_boost='0'>\n";
+	$result .= "\t\t\t<Rewrite></Rewrite>\n";
+	$result .=" \t\t</Label>\n";
+
+	$result .= "\t</FacetItem>\n\n"; 	
+
+	return $result;
+}

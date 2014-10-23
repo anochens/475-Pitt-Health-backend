@@ -18,25 +18,8 @@ $cats = $temp;
 $prelim = "<Annotations>\n";
 $post = "</Annotations>\n";
 
-
 $results = '';
 
-function striptitle($string) {
-	$string = strtolower($string);
-	$string = str_replace(array(' ','/'), "_", $string);
-
-	return $string;
-}
-
-function generalizeURL($url) {
-	$url = str_replace("http://","", $url);
-	$url = str_replace("https://","", $url);
-	if(substr($url, -1) == '/') {
-   	$url .= "*";
-	} 
-	$url = str_replace("www.","*.", $url);
-	return $url;
-}
 
 foreach($sites as $site) {
 	$r_cats = explode(',', $site['categories']);
@@ -44,23 +27,28 @@ foreach($sites as $site) {
 
 	$result = "\n<Annotation about='".generalizeURL($site['url'])."'>\n";
 
-	$num_added = 0;
+	$num_added = 0; //need to keep track 
+						 //bc google doesnt like a annotation without any labels
 	$result .= "\t<label name='default' />\n";
 
 	$iama_list = array();
 	foreach($r_cats as $iama){
-		if($cats && $iama && $cats[$iama] && $cats[$iama]['is_iama'] == 1) {
-			$iama_list[] = striptitle($cats[$iama]['name']);
+		if($iama && $cats[$iama] && $cats[$iama]['is_iama'] == 1) {
+			$iama_list[] = $cats[$iama]['id'];
 		}
 	}
+	$iama_list = pc_array_power_set($iama_list);
 
 	foreach($iama_list as $iama) {
+		if(!$iama) continue;
+
+		$iama = implode('_',$iama);
 
 		foreach($r_cats as $cat) {
 			if(!$cat || $cat == '') continue;
 
 			if($cats[$cat]['is_iama'] == 0) {
-				$result .= "\t<label name='".$iama."__".striptitle($cats[$cat]['name'])."' />\n";
+				$result .= "\t<label name='iama_".$iama."__filter_".$cats[$cat]['id']."' />\n";
 				$num_added++;
 			}
 		}

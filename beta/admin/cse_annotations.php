@@ -47,13 +47,23 @@ foreach($sites as $site) {
 	$num_added = 0;
 	$result .= "\t<label name='default' />\n";
 
-	foreach($r_cats as $cat) {
-		if(!$cat || $cat == '') continue;
+	$iama_list = array();
+	foreach($r_cats as $iama){
+		if($cats && $iama && $cats[$iama] && $cats[$iama]['is_iama'] == 1) {
+			$iama_list[] = striptitle($cats[$iama]['name']);
+		}
+	}
 
-//		if($cats[$cat]['is_iama'] == 1) {
-			$result .= "\t<label name='".striptitle($cats[$cat]['name'])."' />\n";
-			$num_added++;
-//		}
+	foreach($iama_list as $iama) {
+
+		foreach($r_cats as $cat) {
+			if(!$cat || $cat == '') continue;
+
+			if($cats[$cat]['is_iama'] == 0) {
+				$result .= "\t<label name='".$iama."__".striptitle($cats[$cat]['name'])."' />\n";
+				$num_added++;
+			}
+		}
 	}
 	
 	

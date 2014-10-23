@@ -22,6 +22,9 @@ foreach($sites as $site) {
 		$cats_to_sites[$cat][] = $site['url'];
 	}
 }
+
+
+ 
  
 $temp = array();
 foreach($cats as $cat) {
@@ -47,19 +50,25 @@ function convert($string) {
 	return $string;
 }                                                                 
 
-foreach($cats as $cat) {
-	if($cat['is_iama'] == 1) continue;
-	$result = '';
-	$result .= "\t<FacetItem title='".$cat['name']."'>\n";
-	$result .= "\t\t<Label name='".convert($cat['name'])."' mode='FILTER' enable_for_facet_search='true' label_onebox_boost='0'>\n\t\t\t<Rewrite></Rewrite>\n\t\t</Label>\n";
-/*
-	foreach($cats_to_sites[$cat['id']] as $site) {
-		$result .= "\t\t<Label name='$site' mode='FILTER' />\n";
-	}
-*/
 
-	$result .= "\t</FacetItem>\n\n";
-	$results .= $result;	
+$iama_list = array();
+foreach($cats as $id=>$iama){
+	if($iama  && $iama['is_iama'] == 1) {
+		$iama_list[] = convert($iama['name']);
+	}
+}
+
+
+foreach($iama_list as $iama) {
+	foreach($cats as $cat) {
+		if($cat['is_iama'] == 1) continue;
+		$result = '';
+		$result .= "\t<FacetItem title='".$cat['name']."'>\n";
+		$result .= "\t\t<Label name='".$iama."__".convert($cat['name'])."' mode='FILTER' enable_for_facet_search='true' label_onebox_boost='0'>\n\t\t\t<Rewrite></Rewrite>\n\t\t</Label>\n";
+
+		$result .= "\t</FacetItem>\n\n";
+		$results .= $result;	
+	}
 }
        
 $results = $prelim . $results . $post;

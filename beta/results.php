@@ -107,8 +107,6 @@
 
 			$refinement = 'iama_'.get_iama_str()."__filter_$k"; //WHY 6?
 
-			if($k == 6) $refinement = 'topic_overview';
-
 			$str = "result_section.php?section_num=$k&q=$query+more:$refinement";
 			echo "\n";
 			if(array_key_exists($k, $good_arr)) {

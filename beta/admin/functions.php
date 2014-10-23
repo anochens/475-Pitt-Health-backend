@@ -23,6 +23,27 @@ function get_ip() {
 	return $_SERVER['REMOTE_ADDR'];
 }
 
+function get_iama_str() {
+	$result = array();
+
+	$cats = runQuery('SELECT * FROM search_categories WHERE is_iama = 1');
+   if(!$cats || count($cats) == 0) return '';
+
+
+	foreach($cats as $id => $info) {
+		$k = $info['id'];
+		if(array_key_exists("IAmA_$k", $_GET)) {
+			if($_GET["IAmA_$k"] == 1) {
+				$result[] = $k;
+			}
+		}
+	}
+
+	$result = implode('_', $result);
+	return $result;
+
+}
+
 function runQuery($q, $db = null, $return = true, $assoc = true) {
 	if(!$db) {
    	$db = db_connect();

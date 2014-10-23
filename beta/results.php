@@ -92,13 +92,10 @@
 			$captures = array();
 		}
 		$query = urlencode($_GET['q']);
-		//var_dump(array_keys($good_arr));
+
 
 		echo "<div id='results_leftside'>";
 
-
-		//unhardcode this later
-		$refinements = array('topic_overview', 'diagnosis_symptoms','treatment', 'recovery_post-operative','social', 'research', 'latest_news', 'diet');
 
       //now create a section for each good one
 		foreach($all_arr as $k => $v) {
@@ -108,7 +105,9 @@
 				continue;
 			}                                         
 
-			$refinement = $refinements[$k-6]; //WHY 6?
+			$refinement = 'iama_'.get_iama_str()."__filter_$k"; //WHY 6?
+
+			if($k == 6) $refinement = 'topic_overview';
 
 			$str = "result_section.php?section_num=$k&q=$query+more:$refinement";
 			echo "\n";

@@ -1,3 +1,4 @@
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
 <?php
 
 //alow for variable number of results
@@ -80,5 +81,21 @@ if(array_key_exists('num', $_GET)) {
 
 
 
+<script>
+function goNext(how) {
+	//current google page number
+	curr = document.getElementsByClassName('gsc-cursor-current-page')[0].innerHTML-1;
+	//this uses array indexing
+	//it makes sure you don't go off the ends
+	if(curr+how > 9 || curr+how < 0) return;
 
+
+	//simulate a click on the number
+	document.getElementsByClassName('gsc-cursor-page')[curr+how].click();
+}
+
+</script>
+
+<button onclick='goNext(-1)'>Prev</button>
+<button onclick='goNext(1)'>Next</button>
 

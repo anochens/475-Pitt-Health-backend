@@ -14,7 +14,7 @@ if(array_key_exists('num', $_GET)) {
     var cx = '006315996676710339076:ikprkfw5r20';
     var gcse = document.createElement('script');
     gcse.type = 'text/javascript';
-    gcse.async = true;
+    gcse.async = false;
     gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
         '//www.google.com/cse/cse.js?cx=' + cx;
     var s = document.getElementsByTagName('script')[0];
@@ -83,6 +83,7 @@ if(array_key_exists('num', $_GET)) {
 
 .more_results_btn { padding: 5px 23px; border: 0 none; cursor: pointer; background: rgb(199,0,0); color: white; border-radius: 10px; font-size: 20px; float:right; margin-top:-45px; float:right  }
 .more_results_btn:hover { background-color: rgb(171,5,26) } 
+.more_results_btn { position: absolute; right: 5px; bottom: 5px;}
  
 
 </style>
@@ -91,20 +92,28 @@ if(array_key_exists('num', $_GET)) {
 
 
 <script>
+$(document).ready(function() {                 /*
+	curr = $('.gsc-cursor-current-page');
+	if(!curr || curr.length == 0) {
+		$('.more_results_btn').hide();
+	}                                             */
+});
+
 function goNext(how) {
 	//current google page number
-	curr = document.getElementsByClassName('gsc-cursor-current-page')[0].innerHTML-1;
+	curr = $('.gsc-cursor-current-page');
+	curr = curr.html()-1;
+
 	//this uses array indexing
 	//it makes sure you don't go off the ends
 	if(curr+how > 9 || curr+how < 0) return;
 
-
 	//simulate a click on the number
-	document.getElementsByClassName('gsc-cursor-page')[curr+how].click();
+	$('.gsc-cursor-page')[curr+how].click();
 }
 
 </script>
 
-<button class='more_results_btn' style='float:left' onclick='goNext(-1)'>Prev</button>
+<button class='more_results_btn' style='left:5px' onclick='goNext(-1)'>Prev</button>
 <button class='more_results_btn' onclick='goNext(1)'>Next</button>
 

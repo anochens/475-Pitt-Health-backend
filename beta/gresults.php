@@ -76,6 +76,15 @@ if(array_key_exists('num', $_GET)) {
 	display: none;
 }
 
+.gsc-cursor-box {
+	text-align:center;
+}
+
+
+.more_results_btn { padding: 5px 23px; border: 0 none; cursor: pointer; background: rgb(199,0,0); color: white; border-radius: 10px; font-size: 20px; float:right; margin-top:-45px; float:right  }
+.more_results_btn:hover { background-color: rgb(171,5,26) } 
+ 
+
 </style>
 
 
@@ -96,6 +105,6 @@ function goNext(how) {
 
 </script>
 
-<button onclick='goNext(-1)'>Prev</button>
-<button onclick='goNext(1)'>Next</button>
+<button class='more_results_btn' style='float:left' onclick='goNext(-1)'>Prev</button>
+<button class='more_results_btn' onclick='goNext(1)'>Next</button>
 

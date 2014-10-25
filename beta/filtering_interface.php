@@ -178,7 +178,7 @@ function toggleAdvanced() {
 				//if section not on page, load it
 				//and make sure hidden section is shown
 				console.log('wanting to show '+id);
-				isubmain.length > 0) {
+				if(submain.length > 0) {
 					console.log('just showing it');
             	result_section.show();
 				}

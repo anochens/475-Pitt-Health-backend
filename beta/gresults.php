@@ -1,5 +1,8 @@
-<script src="//code.jquery.com/jquery-latest.min.js"></script>
-<?php
+<?php 
+
+include_once('html_boilerplate.php');
+print_boilerplate();
+
 
 //alow for variable number of results
 $num = 3;
@@ -81,10 +84,6 @@ if(array_key_exists('num', $_GET)) {
 }
 
 
-.more_results_btn { padding: 5px 23px; border: 0 none; cursor: pointer; background: rgb(199,0,0); color: white; border-radius: 10px; font-size: 20px; float:right; margin-top:-45px; float:right  }
-.more_results_btn:hover { background-color: rgb(171,5,26) } 
-.more_results_btn { position: absolute; right: 5px; bottom: 5px;}
- 
 
 </style>
 

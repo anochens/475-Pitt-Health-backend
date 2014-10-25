@@ -1,6 +1,15 @@
-<script src="//code.jquery.com/jquery-latest.min.js"></script>
+<?php 
+
+include_once('html_boilerplate.php');
+print_boilerplate();
+
+?>
+
 
 <?php 
+$adult = checkAdultStatus();
+if($adult == 'clinical') $adult='_adult';
+else $adult='';
 $q='';
 	if(array_key_exists('q',$_GET)) {
    	$q = htmlentities($_GET['q']);
@@ -102,7 +111,7 @@ iframe {
 			echo "<div class='$divid' onclick='togglePlusMinus($section_num);'>$section_name";
 
 			if($section_name != 'Overview to Topic') {
-				echo "<img class='plusminus' id='plusminus$section_num'  src='img/minus.png' />";
+				echo "<img class='plusminus' id='plusminus$section_num'  src='img/minus$adult.png' />";
 			}
 
 			echo "

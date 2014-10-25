@@ -32,10 +32,13 @@
 /* CSS related to the general search section */
 #general_search_section { background-color: white; border: 1px solid white; }
 #general_header { background-color: rgb(47,170,204); color: white; }
+.general_header, #general_header { text-align: center; font-weight: bold; font-size: 30px; padding-bottom: 5px; }
 
 /* CSS related to the recommended search section */
 #recommended_section { background-color: white; border: 1px solid white; }
 #recommended_header { background-color: rgb(92,198,175); color: white; }
+.more_results_btn { background: rgb(56,173,147); }
+.more_results_btn:hover { background-color: rgb(56,173,100) } 
 
 /* CSS related to the search results */
 #result_title { color: rgb(59,173,148); text-decoration: underline; font-weight: bold; }

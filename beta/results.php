@@ -167,12 +167,17 @@
 			$("#general_search_section"+section_num+" button").toggle();
 
 			myimg = $("#general_search_section"+section_num+" img:eq(0)");
+<?php
+$adult = checkAdultStatus();
+if($adult == 'clinical') $adult='_adult';
+else $adult='';
+?>
 
 			if(myimg.attr("src").indexOf("minus") > -1) {
-				myimg.attr("src", "img/plus.png");
+				myimg.attr("src", "img/plus<?=$adult?>.png");
 			}
 			else {
-				myimg.attr("src", "img/minus.png");
+				myimg.attr("src", "img/minus<?=$adult?>.png");
 			}
 		}
 		

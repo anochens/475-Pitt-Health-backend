@@ -16,6 +16,7 @@
 				$view = $newview;
 			}
 		}
+		return $view;
 	}
 
 	/* print_boilerplate function
@@ -24,7 +25,7 @@
 	 * boilerplate for each HTML page within the site.
 	 *
 	 */
-	function print_boilerplate($page_title) {
+	function print_boilerplate($page_title = '') {
 		checkAdultStatus();
 		global $view;
 

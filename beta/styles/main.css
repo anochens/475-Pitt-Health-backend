@@ -110,7 +110,11 @@ span #next_page { color: rgb(171,5,25); margin: 10px; text-align: center; }
 .generic_bar ul li a:hover {	color: rgb(171,5,26); }
 .generic_bar a,.generic_bar span { color: rgb(200,0,0); text-decoration:none;font-size:175% }
             
-
+ 
+.more_results_btn { padding: 5px 23px; border: 0 none; cursor: pointer; background: rgb(199,0,0); color: white; border-radius: 10px; font-size: 20px; float:right; margin-top:-45px; float:right  }
+.more_results_btn:hover { background-color: rgb(171,5,26) } 
+.more_results_btn { position: absolute; right: 5px; bottom: 5px;}
+ 
 
 
 /* CSS related to the footer*/

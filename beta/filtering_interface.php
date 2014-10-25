@@ -2,13 +2,15 @@
 checkAdultStatus();
 global $view;
 
+if(!isset($sidebar)) $sidebar = false;
+
 include_once('admin/functions.php');
 
 $db = db_connect();
 
 $q='SELECT * from search_categories';
 $res = runQuery($q, $db);
-     
+
 ?>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
@@ -27,7 +29,7 @@ $(document).ready(function() {
 			extras += "&"+checkboxes[i].attr('name') +"="+ checkboxes[i].val();
 		}
 
-		<?php if($view == 'cartoony') {  ?>
+		<?php //if($view == 'cartoony') {  ?>
 		sliders = $('.slider');
 
 		for(i=0;i<sliders.length;i++) {
@@ -35,7 +37,7 @@ $(document).ready(function() {
 			value = sliders[i].slider("value");
 			extras += "&"+sliders[i].attr('name') +"="+ value;
 		}        
-		<?php } ?>
+		<?php //} ?>
 		
 
 		formvars = $('form').serialize(); //get data from all forms on the page at once
@@ -77,14 +79,14 @@ function toggleAdvanced() {
 </script>
 
 <div id='toggler'>
-	<?php if(!isset($sidebar) || !$sidebar) { ?>
+	<?php if(!$sidebar) { ?>
 	<a onclick='toggleAdvanced();' id='toggler_link'>Advanced search</a>
 	<?php } ?>
 </div>
 
 <br/>
 
-<?php if(!isset($sidebar) || !$sidebar) { ?>
+<?php if(!$sidebar) { ?>
 
 
 <div class='filtering_wrapper' class='generic_background_section'>
@@ -172,11 +174,11 @@ function toggleAdvanced() {
 
 			}
 			else {
-				<?php if(isset($sidebar)) { ?> 
+				<?php if($sidebar) { ?> 
 				//if section not on page, load it
 				//and make sure hidden section is shown
 				console.log('wanting to show '+id);
-				if(submain.length > 0) {
+				isubmain.length > 0) {
 					console.log('just showing it');
             	result_section.show();
 				}
@@ -221,7 +223,7 @@ function toggleAdvanced() {
 .ui-widget-content .ui-state-default { background: rgb(171,5,26); }
 </style>
 
-<?php if($view == 'cartoony') { ?>
+<?php //if($view == 'cartoony') { ?>
 <script>
 	function moveSlider(forward, cat_id) {
 		target = $('#personalize_'+cat_id);
@@ -239,10 +241,10 @@ function toggleAdvanced() {
 <?php
 
 	include_once('sliders.php');
-} 
+//} 
 
 
-if(isset($sidebar) && $sidebar) { 
+if($sidebar) { 
 	echo "<style>.filtering_wrapper { display:block;}</style>";
 
 	//fill sliders with values from $_GET
@@ -257,14 +259,14 @@ if(isset($sidebar) && $sidebar) {
 			}
 			$passedval = intval($captures[2]);
 
-			if($view == 'cartoony') {
+			//if($view == 'cartoony') {
 				echo "$('#personalize_$passedval').slider('value', '$v');";
-			}
+			/*}
 			else {
 				if($v == 'on') {
 					echo "$('#personalize_$passedval').prop('checked', true);\n";
 				}
-			}
+			} */
 
 		}
                     

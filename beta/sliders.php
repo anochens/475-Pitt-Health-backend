@@ -1,10 +1,7 @@
-
-
-
-
 	<?php
+  if(!isset($sidebar)) $sidebar=false; 
 
-	if($view == 'cartoony') {
+	if($view == 'cartoony' || $sidebar) {
 
 	echo "<div class='filtering_wrapper' class='generic_background_section'><div class='generic_header'>Personalize your search</div>";
 	                                                         
